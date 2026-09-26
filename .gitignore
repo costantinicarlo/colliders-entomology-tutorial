@@ -1,0 +1,11 @@
+# Local operating-system and editor/session state
+.DS_Store
+.Rhistory
+.RData
+.Ruserdata
+.Rproj.user/
+.obsidian/workspace.json
+.obsidian/workspace-mobile.json
+__pycache__/
+*.pyc
+source/**/*

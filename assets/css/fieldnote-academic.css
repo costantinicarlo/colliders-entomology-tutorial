@@ -1,0 +1,34 @@
+/* Local teaching stylesheet inspired by Fieldnote Academic v0.2.0.
+   Replace with the upstream fieldnote-academic.css if desired. */
+:root{
+  --r-background-color:#f7f7f3; --r-main-color:#18212a; --r-main-font:"Aptos","Avenir Next","Inter","Segoe UI",system-ui,sans-serif;
+  --r-heading-font:"Aptos Display","Avenir Next","Inter","Segoe UI",system-ui,sans-serif;
+  --r-heading-color:#18212a; --r-link-color:#0b6b63; --fn-accent:#0b6b63; --fn-muted:#66707a; --fn-rule:#d8ded9; --fn-paper:#ffffff; --fn-surface:#edf2ef; --fn-warm:#9a631b;
+}
+.reveal{font-family:var(--r-main-font);font-size:30px;color:var(--r-main-color);line-height:1.35;text-align:left}
+.reveal .slides{text-align:left}
+.reveal h1,.reveal h2,.reveal h3{font-family:var(--r-heading-font);letter-spacing:-.02em}
+.reveal h1{font-size:2.05em;max-width:13em}
+.reveal h2{font-size:1.5em;border-bottom:1px solid var(--fn-rule);padding-bottom:.22em}
+.reveal h3{font-size:1.05em;color:var(--fn-accent)}
+.reveal .title-slide{border-left:10px solid var(--fn-accent);padding-left:4%!important}
+.reveal .section-slide{background:#132927;color:#f7f7f3!important;padding-left:5%!important}
+.reveal .section-slide h1,.reveal .section-slide h2{color:#f7f7f3!important;border:0}
+.reveal .lead{font-size:1.18em;max-width:32em}
+.reveal .subtitle,.reveal .source,.reveal .caption{color:var(--fn-muted)}
+.reveal .source{position:absolute;bottom:0.35rem;left:0;font-size:.48em}
+.reveal .caption{text-align:center;font-size:.52em}
+.reveal .callout{border-left:6px solid var(--fn-accent);background:var(--fn-surface);padding:.55em .75em;border-radius:10px}
+.reveal .warning{border-left-color:var(--fn-warm)}
+.reveal table{width:100%;border-collapse:collapse;font-size:.7em}
+.reveal th,.reveal td{border-bottom:1px solid var(--fn-rule);padding:.45em .6em}
+.reveal th{background:var(--fn-surface);border-bottom:2px solid var(--fn-accent)}
+.reveal pre{background:#18212a;border-radius:10px;padding:.65em}
+.reveal pre code{color:#f4f6f7;font-size:22px;line-height:1.25}
+.reveal .compact-code pre code{font-size:18px}
+.reveal img{max-width:100%;max-height:500px;box-shadow:none;border:0}
+.reveal .figure-slide{text-align:center}
+.reveal .small{font-size:.62em;color:var(--fn-muted)}
+.reveal .two-col{display:grid;grid-template-columns:1fr 1fr;gap:1.2em;align-items:start}
+.reveal .three-col{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1em}
+.reveal .badge{display:inline-block;background:#e2f0ed;color:#084e49;border-radius:999px;padding:.2em .55em;font-size:.48em;font-weight:700;text-transform:uppercase}
