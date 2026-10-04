@@ -20,7 +20,7 @@ notesSeparator: "note:"
 
 # Collisionneurs en entomologie médicale
 
-Comment un échantillonnage sélectif dû à l’utilisation des moustiquaires peut créer un effet apparent d’une covariable environnementale
+Comment un échantillonnage sélectif dû à l’utilisation des moustiquaires peut créer un effet apparent d’une variable environnementale
 
 Une étude de terrain fictive avec des données simulées <!-- element class="subtitle" -->
 
@@ -107,7 +107,7 @@ B -->|augmente| C[Risque de transmission]
 Il s’agit du chemin causal proposé, et non d’un résultat établi.
 
 note:
-La pression des moustiques, les comptages dans les pièges et le risque de transmission sont des quantités distinctes. Cette hypothèse simplifiée omet d’autres déterminants de la transmission. La simulation porte sur la pression et les comptages ; elle ne simule pas les infections.
+La pression des moustiques, les comptages dans les pièges et le risque de transmission sont des quantités distinctes. **Cette hypothèse simplifiée omet d’autres déterminants de la transmission.** La simulation porte sur la pression et les comptages ; elle ne simule pas les infections.
 
 ---
 
@@ -130,11 +130,11 @@ Les moustiquaires usées et non imprégnées piègent certains moustiques. Les c
 :::
 
 ::: source
-Faute de budget, les scientifiques n’ont pas pu s’offrir des dispositifs d’échantillonnage *actifs*.
+Faute de budget, les scientifiques n’ont pas pu s’offrir des dispositifs d’échantillonnage *proactif*.
 :::
 
 note:
-Sous contrainte budgétaire, les chercheurs choisissent un échantillonnage passif avec les moustiquaires existantes. Les moustiques peuvent entrer par des trous, des fentes ou des ouvertures non bordées et rester à l’intérieur jusqu’au matin. La proportionnalité entre comptages et attaquants est une hypothèse du modèle fictif de mesure, pas une mesure validée du risque de transmission. Chaque attaquant entre indépendamment dans une moustiquaire utilisée avec la probabilité bed_net_entry_rate = 0.7, y reste et est compté le lendemain matin.
+Sous contrainte budgétaire, les chercheurs choisissent un échantillonnage passif avec les moustiquaires existantes. Les moustiques peuvent entrer par des trous, des fentes ou d'autres ouvertures et rester à l’intérieur jusqu’au matin. La proportionnalité entre comptages et attaquants est une hypothèse du modèle fictif de mesure, pas une mesure validée du risque de transmission. Chaque attaquant entre indépendamment dans une moustiquaire utilisée avec la probabilité bed_net_entry_rate, y reste et est compté le lendemain matin.
 
 ---
 
@@ -151,13 +151,13 @@ Sous contrainte budgétaire, les chercheurs choisissent un échantillonnage pass
 ::: interpretation
 Seules les maisons où quelqu’un a dormi sous une moustiquaire la nuit précédente sont échantillonnées.
 
-> [!evidence]
+> [!note]
 > Posséder une moustiquaire ne rend pas la maison éligible.
 
 :::
 
 note:
-Chaque matin, l’équipe interroge les habitants sur l’utilisation effective, indépendamment de la possession d’une moustiquaire. **En posséder une ne suffit pas à rendre la maison éligible.** Aucun comptage n’est enregistré lorsqu’elle n’a pas été utilisée.
+Chaque matin, l’équipe interroge les habitants sur l’utilisation effective, indépendamment de la possession d’une moustiquaire. **Aucun comptage n’est enregistré lorsqu’elle n’a pas été utilisée.**
 
 ---
 
@@ -176,7 +176,7 @@ L’équipe associe chaque comptage aux mesures de température de la nuit préc
 :::
 
 note:
-Des sondes de température sont installées dans les villages étudiés. La visite matinale permet de recueillir les comptages et les températures de la nuit précédente. La simulation simplifie ensuite le dispositif en observations maison-nuit indépendantes ; elle ne modélise ni les visites répétées ni le regroupement par village.
+Des sondes de température sont installées dans les villages étudiés. La visite matinale permet de recueillir les comptages et les températures de la nuit précédente. La simulation simplifie ensuite le dispositif en observations maison-nuit indépendantes ; **elle ne modélise ni les visites répétées ni le regroupement par village**.
 
 ---
 
@@ -217,14 +217,14 @@ Les chercheurs régressent les comptages sur la température. L’association aj
 Les chercheurs interprètent l’association comme un effet de la température et concluent à un risque accru de transmission.
 
 > [!danger]
-> Deux inférences doivent être examinées :
-> 1. des comptages sélectionnés vers un effet causal sur la pression des moustiques.
-> 2. de la pression des moustiques vers le risque de transmission.
+> Deux inférences à examiner :
+> 1. les comptages vers un effet causal sur la pression des moustiques.
+> 2. la pression des moustiques vers le risque de transmission.
 
 :::
 
 note:
-Dans ce récit fictif, les responsables sanitaires diffusent des recommandations fondées sur cette interprétation. Deux inférences doivent être examinées : des comptages sélectionnés vers un effet causal sur la pression, puis de la pression vers le risque de transmission. Aucune infection n’a été mesurée.
+Dans ce récit fictif, les responsables sanitaires diffusent des recommandations fondées sur cette interprétation.
 
 ---
 
@@ -241,13 +241,15 @@ Dans ce récit fictif, les responsables sanitaires diffusent des recommandations
 ::: interpretation
 Dans ce récit fictif, les institutions agissent sur la base de l’interprétation causale des chercheurs.
 
-> [!note]
+> [!attention]
 > Le dessin exagère les conséquences politiques d’inférences non examinées.
 
 :::
 
 note:
-**Le dessin exagère les conséquences politiques d’une inférence non examinée.** Les institutions et logos sont des références illustratives ; la scène ne rapporte aucune recommandation réelle de l’OMS ni décision réelle de financement. Demander quelles preuves manquent avant de présenter le mécanisme d’échantillonnage.
+**Le dessin exagère les conséquences politiques d’une inférence non examinée.** Les institutions et logos sont des références illustratives ; la scène ne rapporte aucune recommandation réelle de l’OMS ni décision réelle de financement.
+
+Demander quelles preuves manquent avant de présenter le mécanisme d’échantillonnage.
 
 ---
 
@@ -260,17 +262,19 @@ note:
 ::: left
 **Cible :** l’effet de la température sur la pression des moustiques parmi les maisons-nuits.
 
-Quel est le processus écologique sous-jacent aux données ?
+*Quel est le processus écologique sous-jacent aux données ?*
 :::
 
 ::: right
 **Données disponibles :** les comptages matinaux dans les maisons où une moustiquaire a été utilisée.
 
-Qu’est-ce qui détermine l’utilisation d’une moustiquaire ?
+*Processus d'observation : qu’est-ce qui détermine l’utilisation d’une moustiquaire ?*
 :::
 
 note:
-Cette diapositive réunit la question de recherche et la règle d’observation. Une maison-nuit correspond à une maison pendant une nuit. La simulation contient 6 000 observations indépendantes, sans plan longitudinal ni échantillonnage en grappes. Recueillir les propositions du public avant de révéler les deux causes comportementales.
+Cette diapositive réunit la question de recherche et la règle d’observation. Une maison-nuit correspond à une maison pendant une nuit. La simulation contient 6 000 observations indépendantes, sans plan longitudinal ni échantillonnage en grappes.
+
+Recueillir les propositions du public avant de révéler les deux causes comportementales.
 
 ---
 
@@ -285,12 +289,12 @@ A[Température de l’air]
 B[Pression des moustiques]
 ```
 
-Dans cet exemple, la température et la pression des moustiques sont générées indépendamment.
+Dans cet exemple, la température et la pression des moustiques sont générées **indépendamment**.
 
 L’effet réel de la température est nul par construction. <!-- element class="lead" -->
 
 note:
-L’indépendance est une hypothèse explicite de simulation. L’absence de flèche directe ne suffirait pas à l’établir dans un graphe plus large comportant des causes communes ou des chemins indirects. Ici, les processus de génération sont indépendants. Un jeu de données simulé fini peut néanmoins présenter une petite pente estimée non nulle.
+L’indépendance est une hypothèse explicite de simulation. **L’absence de flèche directe ne suffirait pas à l’établir dans un graphe plus large comportant des causes communes ou des chemins indirects.** Ici, les processus de génération sont indépendants. Un jeu de données simulé fini peut néanmoins présenter une petite pente estimée non nulle.
 
 ---
 
@@ -381,7 +385,7 @@ style C fill:#e2f0ed,stroke:#0b6b63,stroke-width:3px,color:#18212a
 Un **collisionneur** est une variable vers laquelle convergent deux flèches.
 
 note:
-La température et la pression agissent en sens opposés sur la même décision comportementale. Leurs effets sur cette décision n’impliquent pas un effet causal de la température sur la pression. Les deux variables causent l’utilisation. La seule présence d’un collisionneur dans le graphe ne crée pas l’association : la sélection sur ce nœud, ou sur l’un de ses descendants, ouvre le chemin. Référence : https://www.dagitty.net/learn/dsep/
+La température et la pression agissent en sens opposés sur la même décision comportementale. Leurs effets sur cette décision n’impliquent pas un effet causal de la température sur la pression. Les deux variables causent l’utilisation. **La seule présence d’un collisionneur dans le graphe ne crée pas l’association** : la sélection sur ce nœud, ou sur l’un de ses descendants, ouvre le chemin. *Référence* : https://www.dagitty.net/learn/dsep/
 
 ---
 
@@ -404,7 +408,7 @@ Sélectionner les maisons échantillonnées revient à conditionner sur un **des
 Ici, une maison est échantillonnée si et seulement si sa moustiquaire a été utilisée.
 
 note:
-Le nœud mis en évidence indique la restriction qui définit le jeu de données. Dans la simulation, house_sampled est exactement égal à bednet_used : sélectionner les maisons échantillonnées revient donc à sélectionner les utilisateurs. Plus généralement, conditionner sur un descendant du collisionneur peut aussi ouvrir le chemin. Référence : https://www.dagitty.net/learn/dsep/
+Le nœud mis en évidence indique la restriction qui définit le jeu de données. Dans la simulation, `house_sampled` est exactement égal à `bednet_used` : sélectionner les maisons échantillonnées revient donc à sélectionner les utilisateurs. Plus généralement, **conditionner sur un descendant du collisionneur peut aussi ouvrir le chemin**. Référence : https://www.dagitty.net/learn/dsep/
 
 ---
 
@@ -428,7 +432,7 @@ La flèche en pointillés indique la disponibilité, et non un effet écologique
 **Pas d’échantillonnage signifie un comptage manquant, pas zéro moustique.**
 
 note:
-Ce schéma réunit processus écologique et observation. Le lien pointillé de disponibilité ne doit pas être interprété comme une flèche causale écologique ordinaire. Un comptage potentiel pourrait être défini pour chaque observation, mais il n’est enregistré que pour les maisons sélectionnées. Dans le modèle simplifié, la pression détermine son espérance.
+**Ce schéma réunit processus écologique et observation.** Le lien pointillé de disponibilité ne doit pas être interprété comme une flèche causale écologique ordinaire. Un comptage potentiel pourrait être défini pour chaque observation, mais il n’est enregistré que pour les maisons sélectionnées. Dans le modèle simplifié, la pression détermine son espérance.
 
 ---
 
@@ -446,7 +450,9 @@ EXPLICATION VERBALE <!-- element class="eyebrow" -->
 Nous évaluons ensuite ces explications quantitativement.
 
 note:
-**Il s’agit d’un biais de sélection sur un collisionneur.** L’exemple montre une association qui apparaît après sélection, plutôt qu’une inversion d’une association substantielle préexistante. **Son signe positif découle du modèle comportemental choisi ; un biais de collisionneur n’a pas toujours ce signe.** Faire prédire les tendances dans la population et l’échantillon avant de montrer les résultats.
+**Il s’agit d’un biais de sélection sur un collisionneur.** L’exemple montre une association qui apparaît après sélection, plutôt qu’une inversion d’une association substantielle préexistante. **Son signe positif découle du modèle comportemental choisi ; un biais de collisionneur n’a pas toujours ce signe.**
+
+Faire prédire les tendances dans la population et l’échantillon avant de montrer les résultats.
 
 ---
 
@@ -465,14 +471,14 @@ Déroulement d’une démonstration : demander des prédictions ; montrer les hy
 Nous simulons 6 000 maisons-nuits indépendantes.
 
 1. Générer indépendamment la température et la pression des moustiques.
-2. Générer l’utilisation selon la température et la nuisance.
+2. Générer l’utilisation des moustiquaires selon la température et la nuisance.
 3. Échantillonner uniquement les maisons où la moustiquaire est utilisée.
-4. Simuler les entrées par une loi binomiale de probabilité.
+4. Simuler les entrées dans la moustiquaire par une loi binomiale de probabilité.
 
 **L’effet réel de la température sur la pression est exactement nul.**
 
 note:
-Les objets R nomment ces observations houses. Le modèle représente une nuit par maison simulée, sans mesures répétées ni effets de village. Les coefficients sont illustratifs et ne sont pas estimés sur le terrain.
+Les objets R nomment ces observations `houses`. Le modèle représente une nuit par maison simulée, **sans mesures répétées ni effets de village**. Les coefficients sont illustratifs et ne sont pas estimés sur le terrain.
 
 ---
 
@@ -495,7 +501,7 @@ true_attacking_mosquitoes <- rpois(n,    # un comptage de Poisson par maison-nui
 La pression des moustiques est générée indépendamment de la température.
 
 note:
-**La moyenne variable de la loi de Poisson autorise une hétérogénéité de pression entre maisons ;** 28 est la **médiane** de lambda, pas sa moyenne ; 0,65 est l’écart-type de log(lambda). La température n’intervient pas dans son équation de génération. Ces extraits suivent `R/01_simulate.R` ; les diapositives suivantes utilisent directement les vecteurs générés.
+**La moyenne variable de la loi de Poisson autorise une hétérogénéité de pression entre maisons ;** 28 est la **médiane** de $\lambda$, pas sa moyenne ; 0,65 est l’écart-type de $log(\lambda)$. La température n’intervient pas dans son équation de génération. Ces extraits suivent `R/01_simulate.R` ; les diapositives suivantes utilisent directement les vecteurs générés.
 
 --
 
@@ -516,7 +522,9 @@ Les 6 000 maisons-nuits avant sélection. Axes linéaires ; classes de 1 °C et 
 :::
 
 note:
-Ces histogrammes montrent les deux vecteurs générés sur la diapositive parente, avant standardisation, sélection ou capture. Les deux axes sont linéaires et toute l’étendue observée est conservée. La hauteur des barres représente des effectifs, pas des densités ; les unités et largeurs de classes différentes ne permettent pas de comparer directement les hauteurs entre panneaux. La température suit une loi normale. Les attaquants suivent un mélange Poisson–lognormal : chaque maison-nuit possède sa propre moyenne de Poisson, distribuée selon une loi lognormale, produisant une distribution asymétrique à droite. Ce mélange n’est ni une loi de Poisson unique ni une loi lognormale des comptages. La médiane de lambda vaut 28 ; sa moyenne vaut 28 * exp(0.65^2 / 2). Ces distributions marginales ne prouvent pas l’indépendance : celle-ci découle du modèle générateur ; le nuage de points suivant examine l’association réalisée. Descendre depuis le code pour voir les distributions, puis reprendre la séquence principale pour la standardisation. Pour reproduire les histogrammes interactivement, utiliser hist(air_temperature_c) et hist(true_attacking_mosquitoes) ; R/03_make_plots.R précise les limites de classes affichées.
+Ces histogrammes montrent les deux vecteurs générés sur la diapositive parente, avant standardisation, sélection ou capture. Les deux axes sont linéaires et toute l’étendue observée est conservée. La hauteur des barres représente des effectifs, pas des densités ; les unités et largeurs de classes différentes ne permettent pas de comparer directement les hauteurs entre panneaux. La température suit une loi normale. Les attaquants suivent un mélange Poisson–lognormal : chaque maison-nuit possède sa propre moyenne de Poisson, distribuée selon une loi lognormale, produisant une distribution asymétrique à droite. Ce mélange n’est ni une loi de Poisson unique ni une loi lognormale des comptages. La médiane de $\lambda$ vaut 28 ; sa moyenne vaut $28 \cdot e^{(0.65^2 / 2)}$. Ces distributions marginales ne prouvent pas l’indépendance : celle-ci découle du modèle générateur ; le nuage de points suivant examine l’association réalisée.
+
+Descendre depuis le code pour voir les distributions, puis reprendre la séquence principale pour la standardisation. Pour reproduire les histogrammes interactivement, utiliser `hist(air_temperature_c)` et `hist(true_attacking_mosquitoes)` ; `R/03_make_plots.R` précise les limites de classes affichées.
 
 ---
 
@@ -534,7 +542,9 @@ mz <- as.numeric(scale(true_attacking_mosquitoes))
 - **Référence interprétable :** la constante correspond à une température et une pression moyennes.
 
 note:
-Standardiser consiste à soustraire la moyenne et à diviser par l’écart-type de l’échantillon : z = (x - mean(x)) / sd(x). Les noms tz et mz désignent respectivement température et pression standardisées dans tous les scripts. Dans le modèle logistique suivant, −1,25 est la variation du logarithme des cotes d’utilisation pour une hausse d’un écart-type de température, à pression constante ; +1,75 est la variation correspondante pour la pression. La constante −1 est le logarithme des cotes lorsque les deux prédicteurs sont à leur moyenne. La standardisation peut améliorer le conditionnement numérique lorsque les échelles diffèrent, mais n’est pas obligatoire pour une régression logistique. Elle ne rend pas les comptages asymétriques normaux, ne supprime pas la confusion et ne corrige pas la sélection. Exécuter les diapositives de code dans l’ordre : cette étape transforme les vecteurs générés précédemment. Aucun jeu de données pré-calculé n’est nécessaire.
+Standardiser consiste à soustraire la moyenne et à diviser par l’écart-type de l’échantillon : `z = (x - mean(x)) / sd(x)`. Les noms `tz` et `mz` désignent respectivement température et pression standardisées dans tous les scripts. Dans le modèle logistique suivant, −1,25 est la variation du logarithme des taux d’utilisation pour une hausse d’un écart-type de température, à pression constante ; +1,75 est la variation correspondante pour la pression. La constante −1 est le logarithme des taux lorsque les deux variables température et pression sont à leur moyenne. La standardisation peut améliorer le conditionnement numérique lorsque les échelles diffèrent, mais n’est pas obligatoire pour une régression logistique. Elle ne rend pas les comptages asymétriques normaux, ne supprime pas la confusion et ne corrige pas la sélection.
+
+Exécuter les diapositives de code dans l’ordre : cette étape transforme les vecteurs générés précédemment. Aucun jeu de données pré-calculé n’est nécessaire.
 
 ---
 
@@ -556,7 +566,7 @@ Utiliser les variables standardisées de la diapositive précédente.
 La standardisation ne change pas la corrélation de Pearson.
 
 note:
-Les variables sont indépendantes par construction : leurs processus de génération ne partagent ni entrées ni liens causaux. Le nuage de points et le test recherchent une association linéaire dans la réalisation simulée ; ils ne prouvent pas l’indépendance. Une zone carrée, des limites communes et asp = 1 assurent la même étendue et le même espacement physique par écart-type sur les deux axes. La standardisation est facultative pour Pearson : r, la statistique du test, l’intervalle de confiance et la valeur p restent inchangés. Le diagnostic porte sur les 6 000 observations générées, avant toute restriction aux utilisateurs.
+Les variables sont indépendantes par construction : leurs processus de génération ne partagent ni entrées ni liens causaux. Le nuage de points et le test recherchent une association linéaire dans la réalisation simulée ; ils ne prouvent pas l’indépendance. Une zone carrée, des limites communes et `asp = 1` assurent la même étendue et le même espacement physique par écart-type sur les deux axes. La standardisation est facultative pour Pearson : $r$, la statistique du test, l’intervalle de confiance et la valeur $p$ restent inchangés. Le diagnostic porte sur les 6 000 observations générées, avant toute restriction aux utilisateurs.
 
 ---
 
@@ -571,20 +581,22 @@ Les variables sont indépendantes par construction : leurs processus de généra
 :::
 
 ::: interpretation
-**Test de Pearson** · n = 6 000
+**Test de Pearson** · $n = 6000$
 
-| Statistique | Valeur |
-|---|---:|
-| r | 0,0125 |
-| IC à 95 % | −0,0128 à 0,0378 |
-| t (ddl = 5 998) | 0,9698 |
-| p bilatérale | 0,3322 |
+| Statistique       |           Valeur |
+| ----------------- | ---------------: |
+| $r$               |           0,0125 |
+| IC à 95 %         | −0,0128 à 0,0378 |
+| $t$ (ddl = 5 998) |           0,9698 |
+| $p$ bilatérale    |           0,3322 |
 
-Pas d’association linéaire mise en évidence ; cela **ne prouve pas l’indépendance**.
+Pas d’association linéaire mise en évidence ; **cela ne prouve pas l’indépendance**.
 :::
 
 note:
-Les lignes orange sont des ajustements par moindres carrés. Le panneau standardisé utilise les mêmes limites, graduations et espacements sur les deux axes, sans tronquer tz ni mz. La standardisation conserve la corrélation ; l’apparence change lorsque les axes partagent une échelle commune. L’hypothèse nulle est une corrélation de Pearson nulle dans la population ; l’alternative est une corrélation non nulle. Le test t et l’intervalle fondé sur la transformation z de Fisher reposent sur des hypothèses de distribution pour une inférence exacte ou approchée. Les comptages sont ici discrets et asymétriques : considérer ces résultats comme un diagnostic sur grand échantillon, pas comme un test exact d’indépendance. Une valeur p non significative n’établit pas un effet nul. L’indépendance est connue par le plan de simulation. La sortie R complète est dans data/population_correlation_test.txt et les statistiques dans data/population_correlation.csv. R/run_all.R régénère les sorties ; R/05_make_french_plots.R produit les figures françaises.
+Les lignes orange sont des ajustements par moindres carrés. Le panneau standardisé utilise les mêmes limites, graduations et espacements sur les deux axes, sans tronquer `tz` ni `mz`. La standardisation conserve la corrélation ; l’apparence change lorsque les axes partagent une échelle commune. L’hypothèse nulle est une corrélation de Pearson nulle dans la population ; l’alternative est une corrélation non nulle. Le test $t$ et l’intervalle fondé sur la transformation $z$ de Fisher reposent sur des hypothèses de distribution pour une inférence exacte ou approchée. Les comptages sont ici discrets et asymétriques : considérer ces résultats comme un diagnostic sur grand échantillon, pas comme un test exact d’indépendance. Une valeur $p$ non significative n’établit pas un effet nul. L’indépendance est connue par le plan de simulation.
+
+La sortie R complète est dans `data/population_correlation_test.txt` et les statistiques dans `data/population_correlation.csv`. `R/run_all.R` régénère les sorties ; `R/05_make_french_plots.R` produit les figures françaises.
 
 ---
 
@@ -595,11 +607,15 @@ Les lignes orange sont des ajustements par moindres carrés. Le panneau standard
 ```r
 # température et pression moyennes : tz = 0, mz = 0
 baseline_logit <- -1
+
 plogis(baseline_logit)  # probabilité d’utilisation de référence : 0.269
 
 logit_p_net      <- baseline_logit - 1.25 * tz + 1.75 * mz  # prédicteur linéaire du logit
+
 prob_bednet_used <- plogis(logit_p_net)  # probabilité d’utilisation
+
 bednet_used      <- rbinom(n, 1, prob_bednet_used)  # utilisation effective
+
 house_sampled    <- bednet_used  # maison échantillonnée si utilisation
 ```
 
@@ -610,7 +626,7 @@ La chaleur réduit l’utilisation (`-1.25 * tz`) ; la nuisance l’augmente (`+
 L’*utilisation* effective pour chaque maison-nuit est tirée d’un processus binomial.
 
 note:
-tz et mz sont la température et la pression standardisées. Lorsqu’elles valent zéro, le prédicteur égale la constante : -1 = log(p / (1 - p)). L’inverse du logit donne p = plogis(-1) = 0.2689. Il s’agit de la probabilité conditionnelle aux moyennes des deux prédicteurs, pas de la probabilité moyenne parmi les maisons : l’inverse du logit est non linéaire. Les coefficients donnent la variation du logarithme des cotes pour une hausse d’un écart-type, l’autre prédicteur étant fixé. rbinom simule l’utilisation effective, pas la possession ni l’attribution d’une moustiquaire. La dernière ligne applique exactement la règle d’échantillonnage.
+`tz` et `mz` sont la température et la pression standardisées. Lorsqu’elles valent zéro, le prédicteur égale la constante : `-1 = log(p / (1 - p))`. L’inverse du logit donne `p = plogis(-1) = 0.2689`. Il s’agit de la probabilité conditionnelle aux moyennes des deux variables indépendantes, pas de la probabilité moyenne parmi les maisons : l’inverse du logit est non linéaire. Les coefficients donnent la variation du logarithme des taux pour une hausse d’un écart-type, l’autre variable indépendante étant fixée. **`rbinom` simule l’utilisation effective, pas la possession ni l’attribution d’une moustiquaire.** La dernière ligne applique exactement la règle d’échantillonnage.
 
 ---
 
@@ -635,17 +651,19 @@ mosquitoes_counted_inside_net[sampled] <- rbinom(
 )
 ```
 
-Chaque attaquant a **70 % de chances d’entrer**. Les observations non échantillonnées restent **NA**.
+Chaque moustique attaquant a **70 % de chances d’entrer** à l'intérieur de la moustiquaire.
+
+Les observations non échantillonnées restent **NA**.
 
 note:
-C’est la règle de mesure de R/01_simulate.R. Conditionnellement à N attaquants, le comptage suit Binomiale(N, p), avec p = bed_net_entry_rate = 0.7 : espérance Np et variance Np(1-p). Zéro attaquant implique zéro capture, et les captures ne dépassent jamais les attaquants. La probabilité est illustrative et constante entre maisons et températures. Les entrées sont indépendantes et chaque entrant reste à l’intérieur et est compté. Cela ajoute une variabilité par rapport à un comptage parfait, mais pas nécessairement davantage de variance que l’ancien modèle de mesure de Poisson.
+C’est la règle de mesure de `R/01_simulate.R`. Conditionnellement à $N$ attaquants, le comptage suit $\text{Binomiale}(N, p)$, avec `p = bed_net_entry_rate = 0.7` : espérance $Np$ et variance $Np(1-p)$. Zéro attaquant implique zéro capture, et les captures ne dépassent jamais les attaquants. La probabilité est illustrative et constante entre maisons et températures. Les entrées sont indépendantes et chaque entrant reste à l’intérieur et est compté. Cela ajoute une variabilité par rapport à un comptage parfait, mais pas nécessairement davantage de variance que l’ancien modèle de mesure de Poisson.
 
 ---
 
 <!-- slide template="[[assets/fieldnote-academic/templates/fieldnote-figure-focus]]" -->
 
 ::: title
-## Le filtre comportemental
+## Le filtre comportemental d'utilisation/échantillonnage
 :::
 
 ::: figure
@@ -657,7 +675,9 @@ C’est la règle de mesure de R/01_simulate.R. Conditionnellement à N attaquan
 :::
 
 note:
-Lire la surface comme la probabilité d’entrer dans l’échantillon, car utilisation et échantillonnage coïncident. Demander quelle partie de la population a le moins de chances d’être observée.
+Lire la surface comme la **probabilité d’entrer dans l’échantillon**, car utilisation et échantillonnage coïncident.
+
+Demander quelle partie de la population a le moins de chances d’être observée.
 
 ---
 
@@ -679,10 +699,16 @@ Faire une pause pour les prédictions. L’effet générateur est nul, mais les 
 
 ![Population complète et échantillon des utilisateurs, avec des associations différentes à la température](../../figures/fr/fig01_population_vs_sample.png)
 
-Ordonnées logarithmiques, graduées en nombres de moustiques. À gauche : association quasi nulle. À droite : association positive après sélection. <!-- element class="caption" -->
+Ordonnées logarithmiques, graduées en nombres de moustiques. <!-- element class="caption" -->
+
+À gauche, *population* : association quasi **nulle**.
+
+À droite, *échantillon* : association **positive** après sélection.
 
 note:
-Les panneaux changent à la fois la sélection et la mesure représentée. Les ordonnées partagent la même échelle logarithmique, avec des graduations en nombres de moustiques. L’unique comptage nul de la population est omis seulement de l’affichage, car zéro ne peut figurer sur cet axe. Les ajustements incluent toutes les observations et utilisent les comptages non transformés ; ils peuvent donc paraître courbes sur l’échelle logarithmique. La comparaison suivante distingue sélection et mesure en utilisant les attaquants réels dans l’échantillon comme étape intermédiaire.
+Les panneaux changent à la fois la sélection et la mesure représentée. Les ordonnées partagent la même échelle logarithmique, avec des graduations en nombres de moustiques. L’unique comptage nul de la population est omis seulement de l’affichage, car zéro ne peut figurer sur cet axe. Les ajustements incluent toutes les observations et utilisent les comptages non transformés ; ils peuvent donc paraître courbes sur l’échelle logarithmique.
+
+La comparaison suivante distingue sélection et mesure en utilisant les attaquants réels dans l’échantillon comme étape intermédiaire.
 
 ---
 
@@ -694,10 +720,12 @@ Les panneaux changent à la fois la sélection et la mesure représentée. Les o
 | Maisons sélectionnées : attaquants réels | 1 987 | +3,501 |
 | Maisons sélectionnées : comptages | 1 987 | +2,489 |
 
-La sélection crée l’association positive. L’entrée partielle ramène la pente attendue des comptages à 70 % de celle des attaquants sélectionnés.
+La sélection crée l’association positive.
+
+L’entrée partielle ramène la pente attendue des comptages à 70 % de celle des attaquants sélectionnés.
 
 note:
-Les pentes utilisent les vecteurs générés à pleine précision et sont affichées avec trois décimales. Ce sont des associations linéaires descriptives, pas des effets causaux inférés de l’échantillon. L’analyse des attaquants réels est possible grâce à la simulation ; sur le terrain, cette quantité latente ne serait pas observée pour toutes les maisons.
+Les pentes utilisent les vecteurs générés à pleine précision et sont affichées avec trois décimales. Ce sont des associations linéaires *descriptives*, pas des effets causaux inférés de l’échantillon. **L’analyse des attaquants réels est possible grâce à la simulation ; sur le terrain, cette quantité latente ne serait pas observée pour toutes les maisons.**
 
 ---
 
@@ -707,19 +735,19 @@ Les pentes utilisent les vecteurs générés à pleine précision et sont affich
 
 ```r
 # Utiliser les vecteurs et l’indicateur générés précédemment
-fit_full <- lm(true_attacking_mosquitoes ~ air_temperature_c)
-fit_sample_true <- lm(true_attacking_mosquitoes ~
-                        air_temperature_c, subset = sampled)
-fit_observed <- lm(mosquitoes_counted_inside_net ~
-                     air_temperature_c, subset = sampled)
+fit_full        <- lm(true_attacking_mosquitoes     ~ air_temperature_c)
+
+fit_sample_true <- lm(true_attacking_mosquitoes     ~ air_temperature_c, subset = sampled)
+
+fit_observed    <- lm(mosquitoes_counted_inside_net ~ air_temperature_c, subset = sampled)
 ```
 
 Le modèle intermédiaire isole la sélection avant l’entrée partielle.
 
-La régression linéaire résume l’association de manière transparente ; passer à une régression de comptage (GLM) ne supprimerait pas, à lui seul, le biais de sélection.
+La régression *linéaire* résume l’association de manière transparente ; passer à une régression de comptage (GLM) ne supprimerait pas, à lui seul, le biais de sélection.
 
 note:
-Ce sont les trois modèles de R/02_analyse.R. La régression linéaire résume ici l’association de manière transparente ; **utiliser une régression pour données de comptage ne supprimerait pas, à lui seul, le biais de sélection.** Le modèle de population est une comparaison de référence accessible grâce à la simulation.
+Ce sont les trois modèles de `R/02_analyse.R`. Le modèle de population est une comparaison de référence accessible grâce à la simulation.
 
 ---
 
@@ -734,11 +762,13 @@ Ce sont les trois modèles de R/02_analyse.R. La régression linéaire résume i
 :::
 
 ::: interpretation
-La sélection crée une pente positive chez les attaquants. L’entrée partielle réduit la pente des comptages, tout en préservant l’association.
+La sélection crée une pente positive chez les attaquants.
+
+L’entrée partielle réduit la pente des comptages, tout en préservant l’association.
 :::
 
 note:
-Lire de haut en bas : tous les attaquants réels, les attaquants sélectionnés, puis les comptages sélectionnés. Les barres sont des intervalles de confiance à 95 %. La première comparaison isole la sélection ; la seconde introduit l’entrée binomiale. Avec une probabilité constante p, l’espérance de la pente des comptages, conditionnelle aux attaquants et températures sélectionnés, vaut p fois leur pente. La pente réalisée fluctue autour de cette espérance. Les pentes sont dans les unités de comptage d’origine.
+Lire de haut en bas : tous les attaquants réels, les attaquants sélectionnés, puis les comptages sélectionnés. Les barres sont des intervalles de confiance à 95 %. **La première comparaison isole la sélection ; la seconde introduit l’entrée binomiale.** Avec une probabilité constante $p$, l’espérance de la pente des comptages, conditionnelle aux attaquants et températures sélectionnés, vaut $p$ fois leur pente. La pente réalisée fluctue autour de cette espérance. **Les pentes sont dans les unités de comptage d’origine.**
 
 ---
 
@@ -749,17 +779,17 @@ Lire de haut en bas : tous les attaquants réels, les attaquants sélectionnés,
 :::
 
 ::: left
-Une régression peut décrire correctement l’échantillon observé sans répondre à la question écologique.
+Une régression peut décrire **correctement** l’échantillon observé **sans répondre** à la question écologique.
 :::
 
 ::: right
 Comprendre **comment les observations sont entrées dans le jeu de données** est ici essentiel pour interpréter la pente.
 :::
-
+<br>
 La régression linéaire est naïve mais honnête ; l’association naît du biais de sélection sur un collisionneur. <!-- element class="lead" -->
 
 note:
-Le problème précède l’ajustement du modèle. Ajouter l’utilisation comme covariable ne rétablit pas la comparaison manquante dans un échantillon où tout le monde utilise une moustiquaire. Ce tutoriel ne prétend pas que tout problème de sélection possède une correction statistique simple.
+**Le problème précède l’ajustement du modèle.** Ajouter l’utilisation comme variable indépendante ne rétablit pas la comparaison manquante dans un échantillon où tout le monde utilise une moustiquaire. Ce tutoriel ne prétend pas que tout problème de sélection possède une correction statistique simple.
 
 ---
 
@@ -790,7 +820,7 @@ Prédire d’abord ; modifier une seule hypothèse à la fois.
 > Une intervention imposant l’utilisation universelle [Q1] diffère d’une augmentation de la constante d’utilisation [Q4].
 
 note:
-Descendre pour les réponses, puis aller à droite pour la question suivante. La question 1 compare une population fixe et des populations renouvelées ; les questions 2–6 utilisent uniquement la seconde approche. La question 6 apparie les régimes d’observation séparément pour chaque effet écologique. Pour les questions 2–5, chaque répétition génère une nouvelle population de 6 000 maisons-nuits, puis applique tous les scénarios à cette même population. Les variantes d’entrée conservent les maisons sélectionnées par le scénario de référence de cette répétition. Les points sont les moyennes ; les barres sont les plages centrales à 95 % de Monte-Carlo sur 200 répétitions, et non des intervalles de confiance.
+Descendre pour les réponses, puis aller à droite pour la question suivante. La question 1 compare une population fixe et des populations renouvelées ; les questions 2–6 utilisent uniquement la seconde approche. La question 6 apparie les régimes d’observation séparément pour chaque effet écologique. Pour les questions 2–5, chaque répétition génère une nouvelle population de 6 000 maisons-nuits, puis applique tous les scénarios à cette même population. Les variantes d’entrée conservent les maisons sélectionnées par le scénario de référence de cette répétition. **Les points sont les moyennes ; les barres sont les plages centrales à 95 % de Monte-Carlo sur 200 répétitions, et non des intervalles de confiance.**
 
 ---
 
@@ -801,7 +831,7 @@ Sous les hypothèses de cette simulation, que deviendrait la pente si toutes les
 Faire une pause et prédire avant de révéler la réponse.
 
 note:
-Garder les modèles écologique et de mesure fixes. L’utilisation universelle est ici une intervention imposée au modèle simplifié, pas une simple hausse de la constante ni une prédiction des effets réels d’une couverture universelle.
+Garder les modèles écologique et de mesure fixes. **L’utilisation universelle est ici une intervention imposée** au modèle simplifié, **pas une simple hausse de la constante** ni une prédiction des effets réels d’une couverture universelle.
 
 --
 
@@ -828,11 +858,13 @@ style S fill:#e2f0ed,stroke:#0b6b63,stroke-width:3px
 :::
 
 ::: interpretation
-**Les deux flèches vers l’utilisation sont supprimées :** toutes les maisons sont échantillonnées. **La pente redevient proche de zéro** pour cette population fixe.
+**Les deux flèches vers l’utilisation sont supprimées :** toutes les maisons sont échantillonnées. 
+
+**La pente redevient proche de zéro** pour cette population *fixe*.
 :::
 
 note:
-Le graphe représente l’intervention : imposer U = 1 supprime les deux flèches entrantes, T → U et M → U. L’échantillonnage égale l’utilisation et devient constant pour tous ; aucune restriction sélective n’ouvre donc de chemin entre T et M. Les nœuds déconnectés préservent l’indépendance écologique supposée. Le modèle inchangé de mesure pression–capture est omis pour la lisibilité. L’utilisation universelle supprime la sélection. Pour cette population écologique finie et fixe, la pente attendue des comptages vaut 0,7 fois la petite pente réalisée des attaquants, soit environ 0,082, et non exactement zéro. L’intervalle de simulation n’a donc pas à contenir zéro : il représente l’aléa de capture conditionnel à cette population, pas des populations écologiques répétées. Les points sont les moyennes ; les barres couvrent les 95 % centraux de 200 répétitions d’observation/capture, et ne sont ni des intervalles de confiance ni des tests. Cette première comparaison conserve la population ; la diapositive suivante la renouvelle. R/04_discussion.R régénère les simulations sans lire de données pré-calculées ; R/05_make_french_plots.R produit les graphiques français.
+Le graphe représente l’intervention : imposer U = 1 supprime les deux flèches entrantes, T → U et M → U. L’échantillonnage égale l’utilisation et devient constant pour tous ; aucune restriction sélective n’ouvre donc de chemin entre T et M. Les nœuds déconnectés préservent l’indépendance écologique supposée. **Le modèle inchangé de mesure pression–capture est omis pour la lisibilité.** L’utilisation universelle supprime la sélection. Pour cette population écologique finie et fixe, la pente attendue des comptages vaut 0,7 fois la petite pente réalisée des attaquants, soit environ 0,082, et non exactement zéro. **L’intervalle de simulation n’a donc pas à contenir zéro : il représente l’aléa de capture conditionnel à cette population, pas des populations écologiques répétées.** Les points sont les moyennes ; les barres couvrent les 95 % centraux de 200 répétitions d’observation/capture, et ne sont ni des intervalles de confiance ni des tests. Cette première comparaison conserve la population ; la diapositive suivante la renouvelle. `R/04_discussion.R` régénère les simulations sans lire de données pré-calculées ; `R/05_make_french_plots.R` produit les graphiques français.
 
 --
 
@@ -855,7 +887,7 @@ La covariance réalisée peut être non nulle par hasard.
 :::
 
 note:
-Les deux approches répondent à des questions différentes. Avec une population fixe, E(pente des comptages | T, N) = 0,7 × pente des attaquants ≈ 0,082 ; la plage vaut environ [0,056 ; 0,103]. Avec de nouvelles populations, la moyenne simulée est ≈ 0 et la plage vaut [−0,143 ; 0,164]. Les mécanismes et paramètres restent identiques : seules les réalisations changent. Ces répétitions indépendantes représentent de nouvelles études sous le modèle ; elles ne modélisent pas explicitement l’autocorrélation spatiale ou temporelle. Aucune des deux plages n’est un intervalle de confiance pour l’effet écologique.
+**Les deux approches répondent à des questions différentes.** Avec une population fixe, E(pente des comptages | T, N) = 0,7 × pente des attaquants ≈ 0,082 ; la plage vaut environ [0,056 ; 0,103]. Avec de nouvelles populations, la moyenne simulée est ≈ 0 et la plage vaut [−0,143 ; 0,164]. Les mécanismes et paramètres restent identiques : seules les réalisations changent. Ces répétitions indépendantes représentent de nouvelles études sous le modèle ; elles **ne modélisent pas explicitement l’autocorrélation spatiale ou temporelle**. Aucune des deux plages n’est un intervalle de confiance pour l’effet écologique.
 
 --
 
@@ -865,6 +897,7 @@ Les deux approches répondent à des questions différentes. Avec une population
 
 ```r
 source("R/04_discussion.R")
+
 subset(discussion_summary, scenario == "universal")
 ```
 
@@ -878,7 +911,7 @@ subset(discussion_summary, scenario == "universal")
 200 répétitions par approche ; pentes en moustiques par °C. <!-- element class="caption" -->
 
 note:
-Le code affiche les deux approches pour la couverture universelle. La population fixe isole l’aléa d’observation/capture ; les populations renouvelées incluent aussi l’aléa écologique. Les tables proviennent de la même exécution reproductible.
+Le code affiche les deux approches pour la couverture universelle. **La population fixe isole l’aléa d’observation/capture ; les populations renouvelées incluent aussi l’aléa écologique.** Les tables proviennent de la même exécution reproductible.
 
 ---
 
@@ -891,7 +924,7 @@ Les nuits chaudes sélectionneraient-elles encore les maisons où la pression es
 Prédire la pente comptage–température, puis relancer le processus d’observation.
 
 note:
-Remplacer le terme de température dans logit_p_net par 0 * tz, en gardant baseline_logit = -1 et le coefficient de nuisance à 1.75. Régénérer prob_bednet_used, bednet_used, house_sampled, sampled et les comptages sur une nouvelle population à chaque répétition. La température ne cause plus la sélection, donc ce chemin de collisionneur disparaît. Avec les processus écologiques indépendants et une probabilité d’entrée constante, l’association est nulle dans la population sélectionnée par cette règle ; les simulations finies fluctuent autour de cette attente. Les maisons à forte pression peuvent rester surreprésentées. Comparer la composition autant que la pente.
+Remplacer le terme de température dans `logit_p_net` par `0 * tz`, en gardant `baseline_logit = -1` et le coefficient de nuisance à 1.75. Régénérer `prob_bednet_used`, `bednet_used`, `house_sampled`, `sampled` et les comptages sur une nouvelle population à chaque répétition. **La température ne cause plus la sélection, donc ce chemin de collisionneur disparaît.** Avec les processus écologiques indépendants et une probabilité d’entrée constante, l’association est nulle dans la population sélectionnée par cette règle ; les simulations finies fluctuent autour de cette attente. Les maisons à forte pression peuvent rester surreprésentées. Comparer la composition autant que la pente.
 
 --
 
@@ -917,11 +950,13 @@ style S fill:#fff0d6,stroke:#9a631b,stroke-width:3px
 :::
 
 ::: interpretation
-**Température → utilisation est supprimée :** la sélection ne relie plus température et pression. Les maisons à forte pression restent surreprésentées.
+**Température → utilisation est supprimée :** la sélection ne relie plus température et pression. 
+
+Les maisons à forte pression restent *surreprésentées*.
 :::
 
 note:
-Comparer au collisionneur initial T → U ← M → (comptages), où U détermine l’échantillonnage. T → U est ici absent car son coefficient est nul. Le nœud surligné représente toujours la sélection, mais aucun chemin ne relie température et pression via U. M → U subsiste et favorise les maisons à forte pression. Le modèle inchangé pression–capture est omis pour la lisibilité. Température et pression sont indépendantes dans le modèle générateur ; sélectionner selon la pression seule ne les rend pas dépendantes. La moyenne des attaquants sélectionnés passe d’environ 51,9 à 55,8 ; l’absence de ce biais ne rend pas l’échantillon représentatif. Chaque répétition génère une nouvelle population de 6 000 maisons-nuits, puis applique tous les scénarios à cette même population. Les variantes d’entrée conservent les maisons sélectionnées par le scénario de référence de cette répétition. Les points sont les moyennes ; les barres sont les plages centrales à 95 % de Monte-Carlo sur 200 répétitions, et non des intervalles de confiance.
+Comparer au collisionneur initial T → U ← M → (comptages), où U détermine l’échantillonnage. T → U est ici absent car son coefficient est nul. Le nœud surligné représente toujours la sélection, mais aucun chemin ne relie température et pression via U. M → U subsiste et favorise les maisons à forte pression. **Le modèle inchangé pression–capture est omis pour la lisibilité.** Température et pression sont indépendantes dans le modèle générateur ; sélectionner selon la pression seule ne les rend pas dépendantes. **La moyenne des attaquants sélectionnés passe d’environ 51,9 à 55,8 ; l’absence de ce biais ne rend pas l’échantillon représentatif.** Chaque répétition génère une nouvelle population de 6 000 maisons-nuits, puis applique tous les scénarios à cette même population. Les variantes d’entrée conservent les maisons sélectionnées par le scénario de référence de cette répétition. Les points sont les moyennes ; les barres sont les plages centrales à 95 % de Monte-Carlo sur 200 répétitions, et non des intervalles de confiance.
 
 --
 
@@ -931,14 +966,16 @@ Comparer au collisionneur initial T → U ← M → (comptages), où U détermin
 
 ```r
 source("R/04_discussion.R")
+
 d <- generate_discussion_population()
+
 observe_discussion(temperature_coef = 0, population = d)
 ```
 
-| Scénario | n moyen | Pente moyenne |
-|---|---:|---:|
-| Référence | 1 964 | +2,415 |
-| Sans effet de chaleur | 1 787 | +0,026 |
+| Scénario              | $n$ moyen | Pente moyenne |
+| --------------------- | --------: | ------------: |
+| Référence             |     1 964 |        +2,415 |
+| Sans effet de chaleur |     1 787 |        +0,026 |
 
 200 populations nouvelles ; scénarios appariés par répétition. <!-- element class="caption" -->
 
@@ -982,7 +1019,9 @@ style S fill:#fff0d6,stroke:#9a631b,stroke-width:3px
 :::
 
 ::: interpretation
-**Pression → utilisation est supprimée :** la sélection ne relie plus pression et température. Les nuits fraîches restent surreprésentées.
+**Pression → utilisation est supprimée :** la sélection ne relie plus pression et température.
+
+Les nuits fraîches restent *surreprésentées*.
 :::
 
 note:
@@ -996,7 +1035,9 @@ Comparer au collisionneur initial T → U ← M, où U détermine l’échantill
 
 ```r
 source("R/04_discussion.R")
+
 d <- generate_discussion_population()
+
 observe_discussion(nuisance_coef = 0, population = d)
 ```
 
@@ -1055,7 +1096,9 @@ Les huit constantes partagent une population dans chaque répétition. La réfé
 
 ```r
 source("R/04_discussion.R")
+
 d <- generate_discussion_population()
+
 observe_discussion(baseline_logit = -10, population = d)
 ```
 
@@ -1126,7 +1169,9 @@ La pente attendue vaut p fois celle des attaquants sélectionnés dans chaque r�
 
 ```r
 source("R/04_discussion.R")
+
 d <- generate_discussion_population()
+
 observe_discussion(entry_rate = 0.9, fixed_sample = TRUE, population = d)
 ```
 
@@ -1164,10 +1209,13 @@ Cette question change le modèle causal. Une dépendance pourrait aussi résulte
 
 ```r
 temperature_effect <- 0.3  # beta
+
 n <- 6000L
+
 air_temperature_c <- rnorm(n, mean = 27, sd = 2.8)
-log_pressure <- rnorm(n, mean = log(28), sd = 0.65) +
-  temperature_effect * (air_temperature_c - 27) / 2.8
+
+log_pressure <- rnorm(n, mean = log(28), sd = 0.65) + temperature_effect * (air_temperature_c - 27) / 2.8
+
 true_attacking_mosquitoes <- rpois(n, lambda = exp(log_pressure))
 ```
 
@@ -1246,8 +1294,11 @@ note:
 
 ```r
 source("R/04_discussion.R")
+
 d <- generate_ecological_population(temperature_effect = 0.3)
+
 ecological_slopes(d)
+
 subset(ecological_summary, temperature_effect %in% c(-0.15, 0, 0.3))
 ```
 
@@ -1443,15 +1494,16 @@ Demander aux participants d’apporter leurs propres exemples à la prochaine r�
 <!-- slide template="[[assets/fieldnote-academic/templates/fieldnote-references]]" -->
 
 ::: title
-## Références choisies
+## Sélection de références
 :::
 
 ::: references
-1. Pulford J, Hetzel MW, Bryant M, Siba PM, Mueller I. Reported reasons for not using a mosquito net when one is available: a review of the published literature. _Malaria Journal_ **10**, 83 (2011). <a href="https://doi.org/10.1186/1475-2875-10-83" target="_blank" rel="noopener noreferrer">10.1186/1475-2875-10-83</a>
-2. Moiroux N, Boussari O, Djénontin A, Damien G, Cottrell G, Henry M-C, *et al.* Dry season determinants of malaria disease and net use in Benin, West Africa. _PLoS One_ **7**, e30558 (2012). <a href="https://doi.org/10.1371/journal.pone.0030558" target="_blank" rel="noopener noreferrer">10.1371/journal.pone.0030558</a>
-3. Briët, OJT, Yukich, JO, Pfeiffer, C _et al._ The effect of small solar powered ‘Bͻkͻͻ’ net fans on mosquito net use: results from a randomized controlled cross-over trial in southern Ghana. _Malaria Journal_ **16**, 12 (2017). <a href="https://doi.org/10.1186/s12936-016-1654-2" target="_blank" rel="noopener noreferrer">10.1186/s12936-016-1654-2</a>
+1. Lindsay SW, Schellenberg JRMA, Zeiler HA, Daly, RJ, Salum, FM, Wilkins, HA Exposure of Gambian children to *Anopheles gambiae* malaria vectors in an irrigated rice production area. *Medical and Veterinary Entomology* **9**, 50–58 (1995). <a href="https://doi.org/10.1111/j.1365-2915.1995.tb00116.x" target="_blank" rel="noopener noreferrer">10.1111/j.1365-2915.1995.tb00116.x</a> **Échantillonnage passif des moustiques à l'aide de moustiquaires**
+2. Pulford J, Hetzel MW, Bryant M, Siba PM, Mueller I. Reported reasons for not using a mosquito net when one is available: a review of the published literature. _Malaria Journal_ **10**, 83 (2011). <a href="https://doi.org/10.1186/1475-2875-10-83" target="_blank" rel="noopener noreferrer">10.1186/1475-2875-10-83</a> **La chaleur comme une des raisons expliquant la moindre utilisation des moustiquaires**
+3. Moiroux N, Boussari O, Djénontin A, Damien G, Cottrell G, Henry M-C, *et al.* Dry season determinants of malaria disease and net use in Benin, West Africa. _PLoS One_ **7**, e30558 (2012). <a href="https://doi.org/10.1371/journal.pone.0030558" target="_blank" rel="noopener noreferrer">10.1371/journal.pone.0030558</a> **Augmentation de l'utilisation des moustiquaires associée à la nuisance causée par les moustiques**
+4. Briët, OJT, Yukich, JO, Pfeiffer, C _et al._ The effect of small solar powered ‘Bͻkͻͻ’ net fans on mosquito net use: results from a randomized controlled cross-over trial in southern Ghana. _Malaria Journal_ **16**, 12 (2017). <a href="https://doi.org/10.1186/s12936-016-1654-2" target="_blank" rel="noopener noreferrer">10.1186/s12936-016-1654-2</a> **Utilisation des moustiquaires grâce à des conditions thermiques plus agréables**
 :::
 
 ::: note
-Études examinant certaines variables influant sur l’utilisation des moustiquaires parmi celles discutées dans cette présentation.
+Études examinant certains facteurs discutés dans cette présentation.
 :::
