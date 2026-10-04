@@ -4,7 +4,7 @@
   "autoReload": true,
   "autoStart": true,
   "exportDirectory": "/export",
-  "enableChalkboard": false,
+  "enableChalkboard": true,
   "enableOverview": false,
   "enableMenu": true,
   "enablePointer": true,
