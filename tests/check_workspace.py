@@ -28,10 +28,15 @@ for deck, text in zip(DECKS, texts):
     stacks = [s.split("\n--\n") for s in text.split("\n---\n")]
     assert [len(s) for s in stacks if len(s) > 1] == [2, 4, 3, 3, 3, 3, 5], "Expected population-distribution stack and six discussion stacks"
     for image in re.findall(r"!\[[^\]]*\]\(([^)]+)\)", text):
-        assert (deck.parent / image).is_file(), f"Missing image: {image}"
+        assert image.startswith(("assets/", "figures/")), f"Use vault-relative image paths for export: {image}"
+        assert ".." not in Path(image).parts, f"Image escapes the exported deck: {image}"
+        assert (ROOT / image).is_file(), f"Missing image: {image}"
         if "figures/" in image:
             lang = "en" if "docs_EN" in deck.parts else "fr"
-            assert image.startswith(f"../../figures/{lang}/"), f"Wrong figure language: {image}"
+            assert image.startswith(f"figures/{lang}/"), f"Wrong figure language: {image}"
+    for image in re.findall(r"!\[\[([^\]|]+)(?:\|[^\]]*)?\]\]", text):
+        assert image.startswith("assets/"), f"Use vault-relative embedded assets: {image}"
+        assert (ROOT / image).is_file(), f"Missing embedded asset: {image}"
     for template in re.findall(r'template="\[\[([^\]]+)\]\]"', text):
         assert (ROOT / (template + ".md")).is_file(), f"Missing template: {template}"
     for key in ("theme", "css"):

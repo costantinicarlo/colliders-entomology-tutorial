@@ -17,6 +17,12 @@ These are the authoritative decks. Both use local Fieldnote Academic templates,
 `assets/css/colliders-entomology.css`. Set the plugin's assets directory to
 `assets`. No remote fonts or theme services are required.
 
+Image links use vault-relative paths such as `assets/storyline/storyline_01.png`
+and `figures/fr/fig05_population_correlation.png`. Slides Extended resolves these
+to the same vault files in preview and copies them into each exported deck.
+Keep this convention: `../../` image paths can make the exporter copy a file
+onto itself and stop before copying custom CSS.
+
 Use **right/left** for the main sequence and **down/up** for discussion answers.
 Keep the plugin's default separators (`---` horizontal, `--` vertical) and the
 decks' `notesSeparator: "note:"`. An anchored `^--$` override can lose its
@@ -121,8 +127,12 @@ not loaded by the current decks. Theme licensing is in
 `assets/fieldnote-academic/LICENSE`.
 
 `index.html` links to the current Markdown sources. For browser presentations,
-export from Slides Extended into each language's `current/` directory, keeping
-support files together, then update the landing-page links to those exports.
+use Slides Extended's HTML export. The plugin is configured to write each deck
+to `export/colliders_entomology_EN/` or `export/colliders_entomology_FR/`, including
+its own images, custom CSS, and Reveal.js support files. Export each language
+separately after editing its source. The complete `export/` folder, or an individual
+deck folder, can be copied elsewhere without the Obsidian vault. Keep each deck's
+support files together, then update the landing-page links if publishing exports.
 HTML exports are not globally ignored. Local Obsidian workspace state and R
 session files are ignored; presentation and plugin settings are preserved.
 

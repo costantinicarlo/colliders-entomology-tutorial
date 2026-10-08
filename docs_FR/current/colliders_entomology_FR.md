@@ -26,12 +26,12 @@ Une étude de terrain fictive avec des données simulées <!-- element class="su
 
 **Carlo Costantini • 24 sept. 2026** <!-- element class="byline" -->
 
-![](../../assets/storyline/splashscreen.png) <!-- element class="title-decoration" -->
+![](assets/storyline/splashscreen.png) <!-- element class="title-decoration" -->
 
 [![[assets/licensing/cc-by.svg|118]]](https://creativecommons.org/licenses/by/4.0/deed.fr) <!-- element class="corner-logo" -->
 
 ::: footer
-[![UMR MIVEGEC](../../assets/institutions/mivegec.png)](https://mivegec.fr/) [![IRD](../../assets/institutions/ird.png)](https://www.ird.fr/) [![CNRS](../../assets/institutions/cnrs.png)](https://www.cnrs.fr/) [![Université de Montpellier](../../assets/institutions/universite-montpellier.png)](https://www.umontpellier.fr/)
+[![UMR MIVEGEC](assets/institutions/mivegec.png)](https://mivegec.fr/) [![IRD](assets/institutions/ird.png)](https://www.ird.fr/) [![CNRS](assets/institutions/cnrs.png)](https://www.cnrs.fr/) [![Université de Montpellier](assets/institutions/universite-montpellier.png)](https://www.umontpellier.fr/)
 :::
 
 note:
@@ -57,7 +57,7 @@ Présenter ce cadre avant les dessins. L’avertissement final reprend et dével
 :::
 
 ::: figure
-![Des chercheurs discutent de la température et des attaques de moustiques](../../assets/storyline/storyline_01.png)
+![Des chercheurs discutent de la température et des attaques de moustiques](assets/storyline/storyline_01.png)
 :::
 
 ::: interpretation
@@ -76,7 +76,7 @@ Dans un contexte de préoccupations concernant le changement climatique et les m
 :::
 
 ::: figure
-![Des chercheurs préparent une étude sur la température et la pression des moustiques](../../assets/storyline/storyline_02.png)
+![Des chercheurs préparent une étude sur la température et la pression des moustiques](assets/storyline/storyline_02.png)
 :::
 
 ::: interpretation
@@ -118,7 +118,7 @@ La pression des moustiques, les comptages dans les pièges et le risque de trans
 :::
 
 ::: figure
-![Des moustiques entrent dans une moustiquaire usée par ses ouvertures](../../assets/storyline/storyline_03.png)
+![Des moustiques entrent dans une moustiquaire usée par ses ouvertures](assets/storyline/storyline_03.png)
 :::
 
 ::: interpretation
@@ -145,7 +145,7 @@ Sous contrainte budgétaire, les chercheurs choisissent un échantillonnage pass
 :::
 
 ::: figure
-![Des agents collectent les moustiques dans les moustiquaires utilisées la nuit](../../assets/storyline/storyline_04.png)
+![Des agents collectent les moustiques dans les moustiquaires utilisées la nuit](assets/storyline/storyline_04.png)
 :::
 
 ::: interpretation
@@ -168,7 +168,7 @@ Chaque matin, l’équipe interroge les habitants sur l’utilisation effective,
 :::
 
 ::: figure
-![Les chercheurs relèvent les températures lors des visites matinales](../../assets/storyline/storyline_05.png)
+![Les chercheurs relèvent les températures lors des visites matinales](assets/storyline/storyline_05.png)
 :::
 
 ::: interpretation
@@ -187,7 +187,7 @@ Des sondes de température sont installées dans les villages étudiés. La visi
 :::
 
 ::: figure
-![Les chercheurs représentent les comptages en fonction de la température](../../assets/storyline/storyline_06.png)
+![Les chercheurs représentent les comptages en fonction de la température](assets/storyline/storyline_06.png)
 :::
 
 ::: interpretation
@@ -210,7 +210,7 @@ Les chercheurs régressent les comptages sur la température. L’association aj
 :::
 
 ::: figure
-![Les chercheurs présentent leurs conclusions aux responsables sanitaires](../../assets/storyline/storyline_07.png)
+![Les chercheurs présentent leurs conclusions aux responsables sanitaires](assets/storyline/storyline_07.png)
 :::
 
 ::: interpretation
@@ -235,7 +235,7 @@ Dans ce récit fictif, les responsables sanitaires diffusent des recommandations
 :::
 
 ::: figure
-![Des institutions fictives financent des interventions de refroidissement](../../assets/storyline/storyline_08.png)
+![Des institutions fictives financent des interventions de refroidissement](assets/storyline/storyline_08.png)
 :::
 
 ::: interpretation
@@ -305,7 +305,7 @@ L’indépendance est une hypothèse explicite de simulation. **L’absence de f
 :::
 
 ::: figure
-![Une famille n’utilise pas sa moustiquaire lors d’une nuit trop chaude](../../assets/storyline/storyline_09.png)
+![Une famille n’utilise pas sa moustiquaire lors d’une nuit trop chaude](assets/storyline/storyline_09.png)
 :::
 
 ::: interpretation
@@ -341,7 +341,7 @@ La flèche représente un effet causal sur la probabilité d’utilisation. Elle
 :::
 
 ::: figure
-![Une famille se réfugie sous la moustiquaire lorsque les moustiques deviennent insupportables](../../assets/storyline/storyline_10.png)
+![Une famille se réfugie sous la moustiquaire lorsque les moustiques deviennent insupportables](assets/storyline/storyline_10.png)
 :::
 
 ::: interpretation
@@ -512,7 +512,7 @@ note:
 :::
 
 ::: figure
-![La population simulée sur ses échelles originales](../../figures/fr/fig00_population_distributions.png)
+![La population simulée sur ses échelles originales](figures/fr/fig00_population_distributions.png)
 :::
 
 ::: interpretation
@@ -577,7 +577,7 @@ Les variables sont indépendantes par construction : leurs processus de généra
 :::
 
 ::: figure
-![Nuages de points dans les unités d’origine et standardisées, avec la même association linéaire quasi nulle](../../figures/fr/fig05_population_correlation.png)
+![Nuages de points dans les unités d’origine et standardisées, avec la même association linéaire quasi nulle](figures/fr/fig05_population_correlation.png)
 :::
 
 ::: interpretation
@@ -667,7 +667,7 @@ C’est la règle de mesure de `R/01_simulate.R`. Conditionnellement à $N$ atta
 :::
 
 ::: figure
-![Probabilité d’utilisation selon la température et la pression des moustiques](../../figures/fr/fig02_selection_surface.png)
+![Probabilité d’utilisation selon la température et la pression des moustiques](figures/fr/fig02_selection_surface.png)
 :::
 
 ::: interpretation
@@ -697,7 +697,7 @@ Faire une pause pour les prédictions. L’effet générateur est nul, mais les 
 
 ## Avant et après sélection
 
-![Population complète et échantillon des utilisateurs, avec des associations différentes à la température](../../figures/fr/fig01_population_vs_sample.png)
+![Population complète et échantillon des utilisateurs, avec des associations différentes à la température](figures/fr/fig01_population_vs_sample.png)
 
 Ordonnées logarithmiques, graduées en nombres de moustiques. <!-- element class="caption" -->
 
@@ -758,7 +758,7 @@ Ce sont les trois modèles de `R/02_analyse.R`. Le modèle de population est une
 :::
 
 ::: figure
-![Pentes pour tous les attaquants, les attaquants sélectionnés et les comptages sélectionnés](../../figures/fr/fig03_coefficient_comparison.png)
+![Pentes pour tous les attaquants, les attaquants sélectionnés et les comptages sélectionnés](figures/fr/fig03_coefficient_comparison.png)
 :::
 
 ::: interpretation
@@ -842,7 +842,7 @@ Garder les modèles écologique et de mesure fixes. **L’utilisation universell
 :::
 
 ::: figure
-![Pente des comptages selon le scénario, avec intervalles de simulation](../../figures/fr/fig06_discussion_universal.png)
+![Pente des comptages selon le scénario, avec intervalles de simulation](figures/fr/fig06_discussion_universal.png)
 :::
 
 ::: causal
@@ -875,7 +875,7 @@ Le graphe représente l’intervention : imposer U = 1 supprime les deux flèche
 :::
 
 ::: figure
-![1. Même intervention, deux répétitions possibles](../../figures/fr/fig06b_universal_replication.png)
+![1. Même intervention, deux répétitions possibles](figures/fr/fig06b_universal_replication.png)
 :::
 
 ::: interpretation
@@ -935,7 +935,7 @@ Remplacer le terme de température dans `logit_p_net` par `0 * tz`, en gardant `
 :::
 
 ::: figure
-![Pente des comptages selon le scénario, avec intervalles de simulation](../../figures/fr/fig07_discussion_no_heat.png)
+![Pente des comptages selon le scénario, avec intervalles de simulation](figures/fr/fig07_discussion_no_heat.png)
 :::
 
 ::: causal
@@ -1004,7 +1004,7 @@ Remplacer le terme de nuisance par 0 * mz, en gardant baseline_logit = -1 et le 
 :::
 
 ::: figure
-![Pente des comptages selon le scénario, avec intervalles de simulation](../../figures/fr/fig08_discussion_no_nuisance.png)
+![Pente des comptages selon le scénario, avec intervalles de simulation](figures/fr/fig08_discussion_no_nuisance.png)
 :::
 
 ::: causal
@@ -1076,7 +1076,7 @@ La référence vaut désormais −1 (26,9 % aux prédicteurs moyens). La grille 
 :::
 
 ::: figure
-![Pente des comptages selon le scénario, avec intervalles de simulation](../../figures/fr/fig09_discussion_intercept.png)
+![Pente des comptages selon le scénario, avec intervalles de simulation](figures/fr/fig09_discussion_intercept.png)
 :::
 
 ::: interpretation
@@ -1141,7 +1141,7 @@ La pente attendue des comptages vaut p fois celle des attaquants sélectionnés,
 :::
 
 ::: figure
-![Pente des comptages selon le scénario, avec intervalles de simulation](../../figures/fr/fig10_discussion_entry.png)
+![Pente des comptages selon le scénario, avec intervalles de simulation](figures/fr/fig10_discussion_entry.png)
 :::
 
 ::: interpretation
@@ -1239,7 +1239,7 @@ N désigne le nombre de moustiques attaquants et lambda sa moyenne conditionnell
 :::
 
 ::: figure
-![6. Réponse : deux chemins contribuent](../../figures/fr/fig11_ecological_selection.png)
+![6. Réponse : deux chemins contribuent](figures/fr/fig11_ecological_selection.png)
 :::
 
 ::: causal
@@ -1272,7 +1272,7 @@ Un exemple avec temperature_effect = 0.3 : chaque hausse de 2,8 °C multiplie l�
 :::
 
 ::: figure
-![6. Faire varier l’effet écologique](../../figures/fr/fig12_ecological_sweep.png)
+![6. Faire varier l’effet écologique](figures/fr/fig12_ecological_sweep.png)
 :::
 
 ::: interpretation

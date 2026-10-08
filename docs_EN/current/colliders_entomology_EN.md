@@ -26,12 +26,12 @@ A fictional field study with simulated data <!-- element class="subtitle" -->
 
 **Carlo Costantini • 24 Sept. 2026** <!-- element class="byline" -->
 
-![](../../assets/storyline/splashscreen.png)  <!-- element class="title-decoration" -->
+![](assets/storyline/splashscreen.png)  <!-- element class="title-decoration" -->
 
  [![[assets/licensing/cc-by.svg|118]]](https://creativecommons.org/licenses/by/4.0/) <!-- element class="corner-logo" -->
 
 ::: footer
-[![UMR MIVEGEC](../../assets/institutions/mivegec.png)](https://mivegec.fr/) [![IRD](../../assets/institutions/ird.png)](https://www.ird.fr/) [![CNRS](../../assets/institutions/cnrs.png)](https://www.cnrs.fr/) [![Université de Montpellier](../../assets/institutions/universite-montpellier.png)](https://www.umontpellier.fr/)
+[![UMR MIVEGEC](assets/institutions/mivegec.png)](https://mivegec.fr/) [![IRD](assets/institutions/ird.png)](https://www.ird.fr/) [![CNRS](assets/institutions/cnrs.png)](https://www.cnrs.fr/) [![Université de Montpellier](assets/institutions/universite-montpellier.png)](https://www.umontpellier.fr/)
 :::
 
 note:
@@ -57,7 +57,7 @@ Introduce this framing before the cartoons. The final disclaimer returns to and 
 :::
 
 ::: figure
-![Researchers discuss temperature and mosquito biting](../../assets/storyline/storyline_01.png)
+![Researchers discuss temperature and mosquito biting](assets/storyline/storyline_01.png)
 :::
 
 ::: interpretation
@@ -76,7 +76,7 @@ Against a background of concern about climate change and mosquito-borne diseases
 :::
 
 ::: figure
-![Researchers plan a study of temperature and mosquito pressure](../../assets/storyline/storyline_02.png)
+![Researchers plan a study of temperature and mosquito pressure](assets/storyline/storyline_02.png)
 :::
 
 ::: interpretation
@@ -118,7 +118,7 @@ Mosquito pressure, trapped mosquito counts, and transmission risk are distinct q
 :::
 
 ::: figure
-![Mosquitoes enter a worn bed net through openings](../../assets/storyline/storyline_03.png)
+![Mosquitoes enter a worn bed net through openings](assets/storyline/storyline_03.png)
 :::
 
 ::: interpretation
@@ -145,7 +145,7 @@ The researchers choose passive sampling with existing bed nets under budget cons
 :::
 
 ::: figure
-![Field workers collect mosquitoes from nets used overnight](../../assets/storyline/storyline_04.png)
+![Field workers collect mosquitoes from nets used overnight](assets/storyline/storyline_04.png)
 :::
 
 ::: interpretation
@@ -168,7 +168,7 @@ Each morning the team asks about actual net use, independently of ownership. **O
 :::
 
 ::: figure
-![Researchers retrieve temperature measurements during morning visits](../../assets/storyline/storyline_05.png)
+![Researchers retrieve temperature measurements during morning visits](assets/storyline/storyline_05.png)
 :::
 
 ::: interpretation
@@ -187,7 +187,7 @@ Temperature probes are installed in the surveyed villages. The morning visit ret
 :::
 
 ::: figure
-![Researchers plot mosquito counts against air temperature](../../assets/storyline/storyline_06.png)
+![Researchers plot mosquito counts against air temperature](assets/storyline/storyline_06.png)
 :::
 
 ::: interpretation
@@ -210,7 +210,7 @@ The researchers regress the recorded count on temperature. The fitted associatio
 :::
 
 ::: figure
-![Researchers present their conclusions to health officials](../../assets/storyline/storyline_07.png)
+![Researchers present their conclusions to health officials](assets/storyline/storyline_07.png)
 :::
 
 ::: interpretation
@@ -235,7 +235,7 @@ In this fictional story, health officials issue guidance based on that interpret
 :::
 
 ::: figure
-![Cartoon institutions direct funding toward cooling interventions](../../assets/storyline/storyline_08.png)
+![Cartoon institutions direct funding toward cooling interventions](assets/storyline/storyline_08.png)
 :::
 
 ::: interpretation
@@ -300,7 +300,7 @@ note:
 :::
 
 ::: figure
-![A family leaves its bed net unused on an uncomfortable hot night](../../assets/storyline/storyline_09.png)
+![A family leaves its bed net unused on an uncomfortable hot night](assets/storyline/storyline_09.png)
 :::
 
 ::: interpretation
@@ -336,7 +336,7 @@ The arrow denotes a causal effect on the probability of using a net. It does not
 :::
 
 ::: figure
-![A family moves under a bed net when mosquitoes become unbearable](../../assets/storyline/storyline_10.png)
+![A family moves under a bed net when mosquitoes become unbearable](assets/storyline/storyline_10.png)
 :::
 
 ::: interpretation
@@ -505,7 +505,7 @@ note:
 :::
 
 ::: figure
-![The simulated population on its original scales](../../figures/en/fig00_population_distributions.png)
+![The simulated population on its original scales](figures/en/fig00_population_distributions.png)
 :::
 
 ::: interpretation
@@ -566,7 +566,7 @@ The variables are independent by construction, because their generating processe
 :::
 
 ::: figure
-![Population scatterplots in original and standardised units; both show the same near-zero linear association](../../figures/en/fig05_population_correlation.png)
+![Population scatterplots in original and standardised units; both show the same near-zero linear association](figures/en/fig05_population_correlation.png)
 :::
 
 ::: interpretation
@@ -648,7 +648,7 @@ This is the measurement rule in `R/01_simulate.R`. Conditional on $N$ attackers,
 :::
 
 ::: figure
-![Probability of bed-net use across temperature and mosquito pressure](../../figures/en/fig02_selection_surface.png)
+![Probability of bed-net use across temperature and mosquito pressure](figures/en/fig02_selection_surface.png)
 :::
 
 ::: interpretation
@@ -676,7 +676,7 @@ Pause for predictions. The generating effect is zero, but finite-sample estimate
 
 ## Before and after selection
 
-![Full population and selected bed-net sample, showing different temperature associations](../../figures/en/fig01_population_vs_sample.png)
+![Full population and selected bed-net sample, showing different temperature associations](figures/en/fig01_population_vs_sample.png)
 
 Log-scaled y-axes; tick labels show mosquito counts. Left: near-zero association. Right: positive association after selection. <!-- element class="caption" -->
 
@@ -729,7 +729,7 @@ These are the three models in `R/02_analyse.R`. Linear regression is used here t
 :::
 
 ::: figure
-![Temperature slopes for all houses, sampled true attackers, and sampled recorded counts](../../figures/en/fig03_coefficient_comparison.png)
+![Temperature slopes for all houses, sampled true attackers, and sampled recorded counts](figures/en/fig03_coefficient_comparison.png)
 :::
 
 ::: interpretation
@@ -811,7 +811,7 @@ Keep the ecological and measurement models fixed. **Universal use here is an imp
 :::
 
 ::: figure
-![Count slope across discussion scenarios, with simulation ranges](../../figures/en/fig06_discussion_universal.png)
+![Count slope across discussion scenarios, with simulation ranges](figures/en/fig06_discussion_universal.png)
 :::
 
 ::: causal
@@ -842,7 +842,7 @@ The diagram is the intervened graph: forcing U = 1 removes both incoming causal 
 :::
 
 ::: figure
-![1. Same intervention, two ways to repeat it](../../figures/en/fig06b_universal_replication.png)
+![1. Same intervention, two ways to repeat it](figures/en/fig06b_universal_replication.png)
 :::
 
 ::: interpretation
@@ -901,7 +901,7 @@ Replace the temperature term in `logit_p_net` with `0 * tz`, leaving `baseline_l
 :::
 
 ::: figure
-![Count slope across discussion scenarios, with simulation ranges](../../figures/en/fig07_discussion_no_heat.png)
+![Count slope across discussion scenarios, with simulation ranges](figures/en/fig07_discussion_no_heat.png)
 :::
 
 ::: causal
@@ -969,7 +969,7 @@ Replace the nuisance term in `logit_p_net` with `0 * mz`, leaving `baseline_logi
 :::
 
 ::: figure
-![Count slope across discussion scenarios, with simulation ranges](../../figures/en/fig08_discussion_no_nuisance.png)
+![Count slope across discussion scenarios, with simulation ranges](figures/en/fig08_discussion_no_nuisance.png)
 :::
 
 ::: causal
@@ -1038,7 +1038,7 @@ The default is now −1 (26.9% at mean predictors). The sweep has unit steps fro
 :::
 
 ::: figure
-![Count slope across discussion scenarios, with simulation ranges](../../figures/en/fig09_discussion_intercept.png)
+![Count slope across discussion scenarios, with simulation ranges](figures/en/fig09_discussion_intercept.png)
 :::
 
 ::: interpretation
@@ -1102,7 +1102,7 @@ Conditional on each selected sample, the expected count slope is p times its att
 :::
 
 ::: figure
-![Count slope across discussion scenarios, with simulation ranges](../../figures/en/fig10_discussion_entry.png)
+![Count slope across discussion scenarios, with simulation ranges](figures/en/fig10_discussion_entry.png)
 :::
 
 ::: interpretation
@@ -1196,7 +1196,7 @@ $N$ denotes attacking mosquitoes and $\lambda$ their conditional expected count.
 :::
 
 ::: figure
-![6. Answer: two paths contribute](../../figures/en/fig11_ecological_selection.png)
+![6. Answer: two paths contribute](figures/en/fig11_ecological_selection.png)
 :::
 
 ::: causal
@@ -1229,7 +1229,7 @@ One example with temperature_effect = 0.3: each 2.8 °C increase multiplies expe
 :::
 
 ::: figure
-![6. Vary the ecological effect](../../figures/en/fig12_ecological_sweep.png)
+![6. Vary the ecological effect](figures/en/fig12_ecological_sweep.png)
 :::
 
 ::: interpretation
