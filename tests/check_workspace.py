@@ -61,9 +61,19 @@ for deck, text in zip(DECKS, texts):
         if float(row["temperature_effect"]) in (-.15, 0, .3):
             assert f'{float(row["mean_slope"]):+.3f}' in table_text, "Stale ecological-effect table"
 
-for href in re.findall(r'href="([^"]+)"', (ROOT / "index.html").read_text()):
+landing_page = (ROOT / "index.html").read_text()
+landing_links = re.findall(r'href="([^"]+)"', landing_page)
+export_links = {f"export/colliders_entomology_{lang}/index.html" for lang in ("EN", "FR")}
+assert export_links <= set(landing_links), "Landing page must link to both HTML presentations"
+for href in landing_links:
+    # Generated exports are ignored by Git and may not exist in a fresh clone.
+    # check_exports.py validates their contents after Slides Extended builds them.
+    if href in export_links:
+        continue
     if not re.match(r"(?:https?:|#)", href):
         assert (ROOT / href).exists(), f"Broken landing-page link: {href}"
+for image in re.findall(r'<img[^>]+src="([^"]+)"', landing_page):
+    assert (ROOT / image).is_file(), f"Missing landing-page image: {image}"
 for target in re.findall(r"(?<!!)\[[^\]]*\]\(([^)]+)\)", (ROOT / "README.md").read_text()):
     if not re.match(r"(?:https?:|#)", target):
         assert (ROOT / target).exists(), f"Broken README link: {target}"

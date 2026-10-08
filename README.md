@@ -131,18 +131,59 @@ stylesheet and unused causal schematic are retained as legacy assets and are
 not loaded by the current decks. Theme licensing is in
 `assets/fieldnote-academic/LICENSE`.
 
-`index.html` links to the current Markdown sources. For browser presentations,
-use Slides Extended's HTML export. The plugin is configured to write each deck
-to `export/colliders_entomology_EN/` or `export/colliders_entomology_FR/`, including
+`index.html` is the public tutorial hub: it links to both HTML presentations and
+the GitHub repository, with `assets/storyline/splashscreen.png` as its banner.
+For browser presentations, use Slides Extended's HTML export. The plugin is
+configured to write each deck to `export/colliders_entomology_EN/` or
+`export/colliders_entomology_FR/`, including
 its own images, custom CSS, and Reveal.js support files. Export each language
 separately after editing its source. The complete `export/` folder, or an individual
 deck folder, can be copied elsewhere without the Obsidian vault. Keep each deck's
-support files together, then update the landing-page links if publishing exports.
+support files together.
 The generated `export/` directory is ignored by Git. Regenerate it with Slides
 Extended after cloning; distribute or deploy it as a separate presentation
 artifact. Other HTML files, including the landing page, can be versioned.
 Local Obsidian workspace state and R session files are ignored; presentation
 and plugin settings are preserved.
+
+### Publish the hub with the Quarto website
+
+After exporting both languages, copy this layout into a dedicated website folder,
+for example `resources/colliders-entomology-tutorial/`:
+
+```text
+index.html
+assets/storyline/splashscreen.png
+export/colliders_entomology_EN/    # complete exported deck
+export/colliders_entomology_FR/    # complete exported deck
+```
+
+The hub uses relative presentation and banner links, so this layout works under
+any website subdirectory. Link to the tutorial folder from the website's Resources
+page; retain its own `resources/index.html` as the resource listing.
+
+Copy the bundle into the website's publication output **after** `quarto render`,
+and before uploading the GitHub Pages artifact. This preserves the native HTML,
+CSS, and scripts: Quarto's resource processing can rewrite URLs in copied CSS.
+For example, from the website workspace, using its default `_site/` output:
+
+```bash
+quarto render
+tutorial_source=/path/to/colliders-entomology-tutorial
+tutorial_output=_site/resources/colliders-entomology-tutorial
+mkdir -p "$tutorial_output/assets/storyline"
+cp "$tutorial_source/index.html" "$tutorial_output/index.html"
+cp "$tutorial_source/assets/storyline/splashscreen.png" "$tutorial_output/assets/storyline/"
+cp -R "$tutorial_source/export" "$tutorial_output/"
+```
+
+Use the website's configured output directory if it differs from `_site/`.
+If the deployment command also renders the site, perform the copy in a
+[Quarto post-render step](https://quarto.org/docs/projects/scripts.html#pre-and-post-render),
+so it runs after the final render. Both generated export folders must be available
+to that step; they are not present in a fresh checkout of this tutorial repository.
+Keep the website's existing GitHub Pages deployment process and add the complete
+tutorial bundle to its publication output.
 
 ## License
 
