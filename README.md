@@ -108,6 +108,8 @@ Rscript tests/check_net_entry.R
 Rscript tests/check_discussion.R
 Rscript tests/check_intercept.R
 python3 tests/check_workspace.py
+# After generating the HTML presentations in Slides Extended:
+python3 tests/check_exports.py
 ```
 
 The R check verifies reproducibility, count bounds, missingness, boundary entry
@@ -115,7 +117,10 @@ probabilities, and invalid inputs in a temporary directory. The discussion check
 verifies replication designs, scenario pairing, conditional expected slopes and
 grouped summaries. The workspace check
 verifies bilingual structure/code, asset and template links, numerical summaries,
-and landing-page links. Open both decks in Slides Extended for the final visual
+and landing-page links. The export check verifies that stylesheets, scripts,
+images, and linked badges referenced by each HTML deck exist inside that deck's
+directory. It also accepts a relocated export directory as an argument.
+Open both decks in Slides Extended for the final visual
 check; these checks do not emulate the Obsidian renderer.
 
 ## Source and publication
