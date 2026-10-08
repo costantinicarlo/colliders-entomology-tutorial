@@ -138,8 +138,11 @@ its own images, custom CSS, and Reveal.js support files. Export each language
 separately after editing its source. The complete `export/` folder, or an individual
 deck folder, can be copied elsewhere without the Obsidian vault. Keep each deck's
 support files together, then update the landing-page links if publishing exports.
-HTML exports are not globally ignored. Local Obsidian workspace state and R
-session files are ignored; presentation and plugin settings are preserved.
+The generated `export/` directory is ignored by Git. Regenerate it with Slides
+Extended after cloning; distribute or deploy it as a separate presentation
+artifact. Other HTML files, including the landing page, can be versioned.
+Local Obsidian workspace state and R session files are ignored; presentation
+and plugin settings are preserved.
 
 ## License
 
