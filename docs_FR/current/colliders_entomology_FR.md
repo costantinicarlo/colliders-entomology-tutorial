@@ -134,7 +134,7 @@ Faute de budget, les scientifiques n’ont pas pu s’offrir des dispositifs d�
 :::
 
 note:
-Sous contrainte budgétaire, les chercheurs choisissent un échantillonnage passif avec les moustiquaires existantes. Les moustiques peuvent entrer par des trous, des fentes ou d'autres ouvertures et rester à l’intérieur jusqu’au matin. La proportionnalité entre comptages et attaquants est une hypothèse du modèle fictif de mesure, pas une mesure validée du risque de transmission. Chaque attaquant entre indépendamment dans une moustiquaire utilisée avec la probabilité bed_net_entry_rate, y reste et est compté le lendemain matin.
+Sous contrainte budgétaire, les chercheurs choisissent un échantillonnage passif avec les moustiquaires existantes. Les moustiques peuvent entrer par des trous, des fentes ou d'autres ouvertures et rester à l’intérieur jusqu’au matin. La proportionnalité entre comptages et attaquants est une hypothèse du modèle fictif de mesure, pas une mesure validée du risque de transmission. Chaque attaquant entre indépendamment dans une moustiquaire utilisée avec la probabilité `bed_net_entry_rate`, y reste et est compté le lendemain matin.
 
 ---
 
@@ -583,12 +583,12 @@ Les variables sont indépendantes par construction : leurs processus de généra
 ::: interpretation
 **Test de Pearson** · $n = 6000$
 
-| Statistique       |           Valeur |
-| ----------------- | ---------------: |
-| $r$               |           0,0125 |
-| IC à 95 %         | −0,0128 à 0,0378 |
-| $t$ (ddl = 5 998) |           0,9698 |
-| $p$ bilatérale    |           0,3322 |
+| Statistique      |           Valeur |
+| ---------------- | ---------------: |
+| $r$              |           0,0125 |
+| IC à 95 %        | −0,0128 à 0,0378 |
+| $t$ (ddl = 5998) |           0,9698 |
+| $p$ bilatérale   |           0,3322 |
 
 Pas d’association linéaire mise en évidence ; **cela ne prouve pas l’indépendance**.
 :::
