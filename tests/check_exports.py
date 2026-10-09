@@ -9,6 +9,10 @@ import re
 import sys
 from urllib.parse import unquote, urlsplit
 
+repo_root = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(repo_root))
+from scripts.prepare_export_notices import license_sources
+
 
 class Resources(HTMLParser):
     def __init__(self):
@@ -39,11 +43,26 @@ class Resources(HTMLParser):
 
 
 export_root = (Path(sys.argv[1]) if len(sys.argv) > 1 else
-               Path(__file__).resolve().parents[1] / "export").resolve()
+               repo_root / "export").resolve()
 pages = sorted(export_root.glob("*/index.html"))
 assert pages, f"No exported presentations found in {export_root}"
+required_licenses = license_sources(repo_root)
 
 for page in pages:
+    notice = page.parent / "THIRD_PARTY_NOTICES.md"
+    assert notice.is_file(), f"{page.parent.name}: missing THIRD_PARTY_NOTICES.md"
+    assert notice.read_bytes() == (repo_root / "THIRD_PARTY_NOTICES.md").read_bytes(), (
+        f"{page.parent.name}: THIRD_PARTY_NOTICES.md is out of date"
+    )
+    for relative_path, source in required_licenses.items():
+        bundled_license = page.parent / "LICENSES" / relative_path
+        assert bundled_license.is_file(), (
+            f"{page.parent.name}: missing license {bundled_license.relative_to(page.parent)}"
+        )
+        assert bundled_license.read_bytes() == source.read_bytes(), (
+            f"{page.parent.name}: stale license {bundled_license.relative_to(page.parent)}"
+        )
+
     html = page.read_text()
     resources = Resources()
     resources.feed(html)

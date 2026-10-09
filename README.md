@@ -109,6 +109,7 @@ Rscript tests/check_discussion.R
 Rscript tests/check_intercept.R
 python3 tests/check_workspace.py
 # After generating the HTML presentations in Slides Extended:
+python3 scripts/prepare_export_notices.py
 python3 tests/check_exports.py
 ```
 
@@ -117,9 +118,11 @@ probabilities, and invalid inputs in a temporary directory. The discussion check
 verifies replication designs, scenario pairing, conditional expected slopes and
 grouped summaries. The workspace check
 verifies bilingual structure/code, asset and template links, numerical summaries,
-and landing-page links. The export check verifies that stylesheets, scripts,
-images, and linked badges referenced by each HTML deck exist inside that deck's
-directory. It also accepts a relocated export directory as an argument.
+and landing-page links. After exporting, `prepare_export_notices.py` copies the
+project and retained third-party license texts into each standalone deck. The
+export check verifies those notices and that stylesheets, scripts, images, and
+linked badges referenced by each HTML deck exist inside that deck's directory.
+It also accepts a relocated export directory as an argument.
 Open both decks in Slides Extended for the final visual
 check; these checks do not emulate the Obsidian renderer.
 
@@ -189,4 +192,6 @@ tutorial bundle to its publication output.
 
 The project license is [Creative Commons Attribution 4.0 International](LICENSE)
 (`CC-BY-4.0`). The bundled Fieldnote Academic theme retains its separate
-[MIT license notice](assets/fieldnote-academic/LICENSE).
+[MIT license notice](assets/fieldnote-academic/LICENSE). The Slides Extended
+plugin and its runtime are third-party software with separate license terms;
+see [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
