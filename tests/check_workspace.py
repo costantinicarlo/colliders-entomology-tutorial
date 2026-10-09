@@ -26,7 +26,7 @@ for deck, text in zip(DECKS, texts):
     assert 'notesSeparator: "note:"' in text, "Use literal note marker"
     assert text.count("```") % 2 == 0, "Unbalanced code fences"
     stacks = [s.split("\n--\n") for s in text.split("\n---\n")]
-    assert [len(s) for s in stacks if len(s) > 1] == [2, 4, 3, 3, 3, 3, 5], "Expected population-distribution stack and six discussion stacks"
+    assert [len(s) for s in stacks if len(s) > 1] == [2, 4, 3, 3, 4, 3, 5], "Expected population-distribution stack and six discussion stacks"
     for image in re.findall(r"!\[[^\]]*\]\(([^)]+)\)", text):
         assert image.startswith(("assets/", "figures/")), f"Use vault-relative image paths for export: {image}"
         assert ".." not in Path(image).parts, f"Image escapes the exported deck: {image}"

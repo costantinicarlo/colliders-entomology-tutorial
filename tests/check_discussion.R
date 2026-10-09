@@ -54,11 +54,21 @@ for (i in seq_len(nrow(s))) {
             abs(r$slope_low - quantile(x, .025)) < 1e-10,
             abs(r$slope_high - quantile(x, .975)) < 1e-10)
 }
-# Analytic universal population OLS slope under the lognormal-Poisson model.
-# Compare means using Monte Carlo error, not the 95% replicate percentile range.
+generator <- parse("R/lib/ecological_effect_compute.R")[[1]]
+eval(generator)
+set.seed(123)
+generated <- generate_ecological_population(0.3)
+set.seed(123)
+temperature <- rnorm(6000, 27, 2.8)
+temperature_z <- as.numeric(scale(temperature))
+heterogeneity <- rnorm(6000, 0, 0.65)
+attackers <- rpois(6000, exp(log(28) + 0.3 * temperature_z + heterogeneity))
+stopifnot(identical(generated$tz, temperature_z),
+          identical(generated$true_attacking_mosquitoes, attackers))
+
 for (effect in unique(d$temperature_effect)) {
-  x <- d$universal[d$temperature_effect == effect]
-  expected <- .7 * 28 * exp(.65^2 / 2 + effect^2 / 2) * effect / 2.8
-  stopifnot(abs(mean(x) - expected) < 5 * sd(x) / sqrt(length(x)))
+  rows <- d$temperature_effect == effect
+  residual <- d$universal[rows] - d$expected_universal[rows]
+  stopifnot(abs(mean(residual)) < 5 * sd(residual) / sqrt(length(residual)))
 }
-cat("PASS: ecological count support, paired differences, summaries, analytic universal slopes\n")
+cat("PASS: ecological count support, paired differences, summaries, scaled generator and conditional universal slopes\n")

@@ -281,13 +281,13 @@ Z\sim\operatorname{Normal}(0,0.65^2),
 $$
 
 $$
-\log\lambda=\log 28+Z+\beta(T-27)/2.8,
-\qquad M\mid T,Z\sim\operatorname{Poisson}(\lambda).
+T_z=(T-\bar T)/s_T,\qquad \log\lambda=\log 28+Z+\beta T_z,
+\qquad M\mid T_z,Z\sim\operatorname{Poisson}(\lambda).
 $$
 
-Here $\beta$ is the ecological coefficient. A 2.8 °C increase multiplies expected pressure by $\exp(\beta)$. At $\beta=0.3$, that multiplier is approximately 1.35: about 35% more expected attackers. This causal arrow is an assumption used to generate the data. A field association alone would not establish it.
+Here $\beta$ is the ecological coefficient. A one-SD temperature increase in the complete generated population multiplies expected pressure by $\exp(\beta)$. At $\beta=0.3$, that multiplier is approximately 1.35: about 35% more expected attackers. This causal arrow is an assumption used to generate the data. A field association alone would not establish it.
 
-The ecological scale of 2.8 °C is fixed. The behavioural model still uses standard deviations recalculated within each complete generated population. Consequently, its nuisance coefficient of 1.75 is held constant per realised standard deviation of pressure, not per attacking mosquito. The ecological intercept holds expected abundance at 27 °C constant as $\beta$ varies; it does not hold the overall mean across all temperatures constant.
+Both ecological and behavioural temperature effects use the same `tz`, calculated from the mean and sample standard deviation of the complete generated population before selection. Neither `tz` nor `mz` is restandardised among users. The nuisance coefficient of 1.75 is held constant per realised standard deviation of pressure, not per attacking mosquito. The ecological intercept holds expected abundance at $T_z=0$, the generated population's mean temperature, constant as $\beta$ varies; it does not hold the overall mean across all temperatures constant. At $T_z=0$ and $Z=0$, expected pressure is 28; after averaging over $Z$, it is $28\exp(0.65^2/2)$, approximately 34.6. The ecological coefficient acts on log expected pressure, while behavioural coefficients act on log odds of net use.
 
 The simulator generates potential captures for every house-night with $p=0.7$. The universal regime observes all these counts; the selected regime reveals only those from users. The two regimes share the same realised ecology and captures. Their difference therefore isolates the effect of selective revelation on these fitted slopes under the toy model. Field researchers cannot observe both regimes for the same unit merely because the simulator can construct them.
 
@@ -295,15 +295,15 @@ The sweep uses seven ecological coefficients and 200 new populations of 6,000 ho
 
 | Ecological coefficient $\beta$ | Mean universal count slope | Mean selected count slope | What selection does in this experiment |
 |---|---:|---:|---|
-| −0.60 | −6.194 | −8.307 | Makes the negative slope larger in magnitude |
-| −0.30 | −2.710 | −1.444 | Makes the negative slope smaller in magnitude |
-| −0.15 | −1.300 | +0.724 | Reverses its sign |
-| 0 | +0.008 | +2.398 | Creates an association under ecological independence |
-| +0.15 | +1.307 | +3.953 | Makes the positive slope larger |
-| +0.30 | +2.711 | +5.697 | Makes the positive slope larger |
-| +0.60 | +6.212 | +10.425 | Makes the positive slope larger |
+| −0.60 | −6.196 | −8.305 | Makes the negative slope larger in magnitude |
+| −0.30 | −2.708 | −1.425 | Makes the negative slope smaller in magnitude |
+| −0.15 | −1.307 | +0.703 | Reverses its sign |
+| 0 | +0.006 | +2.398 | Creates an association under ecological independence |
+| +0.15 | +1.309 | +3.947 | Makes the positive slope larger |
+| +0.30 | +2.717 | +5.716 | Makes the positive slope larger |
+| +0.60 | +6.216 | +10.434 | Makes the positive slope larger |
 
-All slopes in this table are in captured mosquitoes per degree Celsius. They are not estimates of $\beta$, which acts on log expected abundance per 2.8 °C. The linear slope is a summary of a relationship that is nonlinear on the original count scale.
+All slopes in this table are in captured mosquitoes per degree Celsius. They are not estimates of $\beta$, which acts on log expected abundance per temperature SD in the complete generated population. The linear slope is a summary of a relationship that is nonlinear on the original count scale.
 
 Compare selected and universal **count slopes** to assess selection distortion. Subtracting the log-abundance coefficient from a count slope would compare different units. Likewise, the positive distortion at $\beta=0$ is not a fixed quantity that can be subtracted from every field slope: the distortion changes with the ecological relationship and the pressure distribution.
 
@@ -530,7 +530,7 @@ Reliable independent information about the entire selection function can support
 
 Knowing only that heat discourages use and nuisance encourages it is not equivalent to knowing the function. Useful calibration specifies coefficient magnitudes, uncertainty, functional form, predictor units, reference population, and the observation period to which it applies.
 
-The scales matter. Here the behavioural coefficients are per standard deviation in the complete generated population; they are not per standard deviation among users alone. The ecological coefficient in question 6 uses a fixed 2.8 °C scale. Priors from another study require appropriate transformation and an argument that the underlying mechanism applies to the current setting.
+The scales matter. Here the behavioural coefficients are per standard deviation in the complete generated population; they are not per standard deviation among users alone. The ecological coefficient in question 6 uses that same realised temperature SD, with a different response scale. Priors from another study require appropriate transformation, an explicit reference population for scaling, and an argument that the underlying mechanism applies to the current setting.
 
 A prior can stabilise estimation or contribute external information. It does not make the selected likelihood distinguish mechanisms that it otherwise cannot distinguish. A narrow posterior may therefore reflect strong external assumptions. Its claim is conditional: given these ecological, behavioural, capture, and prior specifications, these effect values are plausible.
 
@@ -557,8 +557,10 @@ This reports additional expected attackers per house-night. A relative effect re
 
 $$
 \frac{E[M\mid do(T=t_1)]}{E[M\mid do(T=t_0)]}
-=\exp\{\beta(t_1-t_0)/2.8\}.
+=\exp\{\beta(t_1-t_0)/s_T\}.
 $$
+
+For this contrast, hold the reference population's mean and SD $s_T$ fixed; do not recompute the standardisation after intervening on temperature.
 
 Under a seasonal common-cause model, the observed population mean at a given temperature need not equal the intervention mean. Let $A$ denote a measured set of variables sufficient to account for the relevant common causes. Under valid adjustment assumptions:
 

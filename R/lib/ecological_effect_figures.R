@@ -25,7 +25,7 @@ png("figures/en/fig12_ecological_sweep.png", width = 1400, height = 900, res = 1
 par(mar = c(6, 5, 3, 1), bg = "#f7f7f3")
 r <- subset(s, regime != "difference")
 plot(NA, xlim = range(r$temperature_effect), ylim = range(r$slope_low, r$slope_high),
-     xlab = "Temperature effect on log expected abundance (per 2.8 deg C)",
+     xlab = "Temperature effect on log expected abundance (per temperature SD)",
      ylab = "Count slope (mosquitoes per deg C)", main = "Selection distorts an existing relationship")
 abline(h = 0, v = 0, lty = 3, col = "#888888")
 for (reg in c("universal", "selected")) {

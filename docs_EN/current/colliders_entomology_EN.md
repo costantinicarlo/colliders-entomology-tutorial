@@ -781,11 +781,11 @@ The next comparison separates selection and measurement using true attackers in 
 
 ## Three comparisons separate selection from net entry
 
-| Analysis | Records | Slope: mosquitoes per °C |
-|---|---:|---:|
-| All houses: true attackers | 6,000 | +0.117 |
-| Sampled houses: true attackers | 1,987 | +3.501 |
-| Sampled houses: recorded counts | 1,987 | +2.489 |
+| Analysis                        | Records | Slope: mosquitoes per °C  |  
+| ------------------------------- | ------: | ------------------------: |  
+| All houses: true attackers      |   6,000 |                    +0.117 |  
+| Sampled houses: true attackers  |   1,987 |                    +3.501 |  
+| Sampled houses: recorded counts |   1,987 |                    +2.489 |  
 
 Selection creates the positive association. <!-- element class="lead" -->
 
@@ -888,14 +888,14 @@ Sketch the proposed arrows before suggesting adjustments.
 
 ## Questions to investigate
 
-| Question | Change to explore |
-|---|---|
-| 1. What if everyone used a net? | Force net use for every house |
-| 2. What if heat no longer affected net use? | Set the temperature coefficient to zero |
-| 3. What if nuisance no longer affected net use? | Set the mosquito-pressure coefficient to zero |
-| 4. What if baseline net use changed? | Vary `baseline_logit` |
-| 5. What if more mosquitoes entered the net? | Vary `bed_net_entry_rate` |
-| 6. What if temperature affected mosquito pressure? | Add a direct ecological effect |
+| Question                                           | Change to explore                             |  
+| -------------------------------------------------- | --------------------------------------------- |  
+| 1. What if everyone used a net?                    | Force net use for every house                 |  
+| 2. What if heat no longer affected net use?        | Set the temperature coefficient to zero       |  
+| 3. What if nuisance no longer affected net use?    | Set the mosquito-pressure coefficient to zero |  
+| 4. What if baseline net use changed?               | Vary `baseline_logit`                         |  
+| 5. What if more mosquitoes entered the net?        | Vary `bed_net_entry_rate`                     |  
+| 6. What if temperature affected mosquito pressure? | Add a direct ecological effect                |  
 
 Predict first; change one assumption at a time.
 
@@ -1018,12 +1018,12 @@ source("R/04_discussion.R")
 subset(discussion_summary, scenario == "universal")
 ```
 
-| Scenario         | Mean *n* | Mean slope |
-| ---------------- | -------: | ---------: |
-| Fixed: baseline | 1,960 | +2.490 |
-| Fixed: universal | 6,000 | +0.081 |
-| New: baseline | 1,964 | +2.415 |
-| New: universal | 6,000 | +0.006 |
+| Scenario         | Mean *n* | Mean slope |  
+| ---------------- | -------: | ---------: |  
+| Fixed: baseline  |    1,960 |     +2.490 |  
+| Fixed: universal |    6,000 |     +0.081 |  
+| New: baseline    |    1,964 |     +2.415 |  
+| New: universal   |    6,000 |     +0.006 |  
 
 200 replicates per design; slopes in mosquitoes per °C. <!-- element class="caption" -->
 
@@ -1113,10 +1113,10 @@ d <- generate_discussion_population()   # redraws without resetting the seed
 observe_discussion(temperature_coef = 0, population = d)
 ```
 
-| Scenario       | Mean *n* | Mean slope |  
-| -------------- | -------: | ---------: |  
-| Baseline       |    1,964 |     +2.415 |  
-| No heat effect |    1,787 |     +0.026 |  
+| Scenario       | Mean *n* | Mean slope |
+| -------------- | -------: | ---------: |
+| Baseline       |    1,964 |     +2.415 |
+| No heat effect |    1,787 |     +0.026 |
 
 
 200 new populations; scenarios paired within each replicate. <!-- element class="caption" -->
@@ -1533,7 +1533,11 @@ Selection also opens the collider path T → U ← M. The observed relationship 
 :::
 
 note:
-One example with temperature_effect = 0.3: each 2.8 °C increase multiplies expected abundance by exp(0.3), about 1.35. Both panels share the population, capture draws, and axis limits. Selection reveals a subset of the same potential counts. The vertical axis displays log(1 + count), with original counts as ticks, including zeros. Curves are linear regressions on raw counts, transformed only for display; negative predictions are omitted. They are descriptive fits, not the exponential generating model. The graph focuses on selection; the unchanged capture model is omitted.
+One example with temperature_effect = 0.3: each one-SD temperature increase in the complete generated population multiplies expected abundance by exp(0.3), about 1.35.
+
+Both panels share the population, capture draws, and axis limits. Selection reveals a subset of the same potential counts. The vertical axis displays log(1 + count), with original counts as ticks, including zeros.
+
+Curves are linear regressions on raw counts, transformed only for display; negative predictions are omitted. They are descriptive fits, not the exponential generating model. The graph focuses on selection; the unchanged capture model is omitted.
 
 --
 
@@ -1556,7 +1560,15 @@ The generating coefficient and count slope have different units.
 :::
 
 note:
-For each effect, 200 independent populations of 6,000 house-nights are generated. Within a replicate, universal coverage and net users share the same captures, with entry probability 0.7. Bars are central 95% Monte Carlo percentile ranges, not confidence intervals. The vertical line at zero marks the original ecological model. Lines between effect values guide the eye. The ecological coefficient acts on log expected abundance per 2.8 °C; the fitted slope describes mosquitoes per °C. Their numerical difference is therefore not a bias measure. Compare the two count slopes instead. mz is recomputed in every population: nuisance sensitivity is held constant per standard deviation, not per mosquito. Changing the ecological effect also changes marginal pressure; the ecological intercept holds expected abundance at 27 °C constant, not its marginal mean.
+For each effect, 200 independent populations of 6,000 house-nights are generated. Within a replicate, universal coverage and net users share the same captures, with entry probability 0.7. Bars are central 95% Monte Carlo percentile ranges, not confidence intervals.
+
+The vertical line at zero marks the original ecological model.
+
+The ecological coefficient $\beta$ acts on log expected abundance per temperature SD in the complete generated population; the fitted slope describes mosquitoes per °C. Their numerical difference is therefore not a bias measure. Compare the two count slopes instead.
+
+`tz` and `mz` are recomputed in every complete population before selection: **temperature and nuisance sensitivity are held constant per realised standard deviation, not per degree or mosquito.**
+
+Changing the ecological effect also changes marginal pressure; the ecological intercept holds expected abundance at `tz = 0`, the generated population's mean temperature, constant, not its marginal mean.
 
 --
 
@@ -1568,20 +1580,30 @@ For each effect, 200 independent populations of 6,000 house-nights are generated
 source("R/04_discussion.R")
 
 d <- generate_ecological_population(temperature_effect = 0.3)
+
 ecological_slopes(d)
+
 subset(ecological_summary, temperature_effect %in% c(-0.15, 0, 0.3))
 ```
 
-| Effect | Universal | Net users | Difference |
-|---|---:|---:|---:|
-| -0.15 | -1.300 | +0.724 | +2.024 |
-| +0.00 | +0.008 | +2.398 | +2.390 |
-| +0.30 | +2.711 | +5.697 | +2.987 |
+| Effect | Universal | Net users | Difference |  
+| ------ | --------: | --------: | ---------: |  
+| -0.15  |    -1.307 |    +0.703 |     +2.009 |  
+| +0.00  |    +0.006 |    +2.398 |     +2.392 |  
+| +0.30  |    +2.717 |    +5.716 |     +2.999 |  
 
 200 populations per effect; slopes in mosquitoes per °C. <!-- element class="caption" -->
 
 note:
-R/04_discussion.R generates all results without pre-computed data. generate_ecological_population() uses log_pressure = rnorm(n, log(28), 0.65) + temperature_effect * (air_temperature_c - 27) / 2.8, followed by Poisson counts and the existing net-use model. tz and mz retain their names and are recalculated. The first output illustrates an additional realisation; the table summarises the 200 seeded replicates. Difference = selected slope − universal slope within the same replicate. Results are exported to data/ecological_replicates.csv and data/ecological_summary.csv. A negative universal slope and positive selected slope illustrate reversal; the selected regression alone cannot establish a new causal effect.
+`R/04_discussion.R` generates all results without pre-computed data. `generate_ecological_population()` calculates `tz = as.numeric(scale(air_temperature_c))`, draws `Z = rnorm(n, 0, 0.65)`, and uses `log_pressure = log(28) + temperature_effect * tz + Z`, followed by Poisson counts and the existing net-use model. `mz` is calculated from the realised attackers before selection.
+
+The first output illustrates an additional realisation; the table summarises the 200 seeded replicates.
+
+Difference = selected slope − universal slope within the same replicate.
+
+Results are exported to `data/ecological_replicates.csv` and `data/ecological_summary.csv`. The replicate file also contains `expected_universal`, the expected universal OLS count slope conditional on that population's temperatures, integrated over ecological heterogeneity and capture.
+
+A negative universal slope and positive selected slope illustrate reversal; the selected regression alone cannot establish a new causal effect.
 
 ---
 

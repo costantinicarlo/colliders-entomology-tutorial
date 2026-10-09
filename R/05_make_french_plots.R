@@ -23,7 +23,7 @@ render_french_figures <- function(regenerate = TRUE) {
     "Net users only" = "Utilisateurs seulement",
     "Universal coverage" = "Couverture universelle",
     "Same population and capture draws; temperature effect = 0.3" = "Mêmes population et captures ; effet de température = 0,3",
-    "Temperature effect on log expected abundance (per 2.8 deg C)" = "Effet sur le logarithme de l’abondance attendue (par 2,8 °C)",
+    "Temperature effect on log expected abundance (per temperature SD)" = "Effet sur le logarithme de l’abondance attendue (par écart-type de température)",
     "Selection distorts an existing relationship" = "La sélection déforme une relation existante",
     "200 new populations per effect; paired observation regimes" = "200 populations par effet ; observations appariées",
 

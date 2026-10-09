@@ -52,6 +52,8 @@ Discussion scenarios change universal use, either net-use coefficient, the inter
 
 Outputs:
 
+Question 6 uses `log_pressure = log(28) + temperature_effect * tz + Z`, where `tz` is temperature standardised using the complete generated population's mean and sample SD, before selection, and `Z` is independent normal house-night heterogeneity with SD 0.65. A unit increase in `tz` multiplies expected pressure by `exp(temperature_effect)`. The behavioural filter uses the same `tz` and standardises realised attackers as `mz`; these coefficients have different response scales. Reported descriptive count slopes remain in mosquitoes per degree Celsius. Ecological replicate outputs include `expected_universal`, the expected universal count slope conditional on that replicate's temperatures after averaging over heterogeneity, Poisson counts, and capture.
+
 - `data/simulated_houses.csv`, `data/observed_bednet_sample.csv`: full-precision data.
 - `data/expected_results.csv`: three regressions and their confidence intervals.
 - `data/population_correlation.csv`, `data/population_correlation_test.txt`: Pearson output.

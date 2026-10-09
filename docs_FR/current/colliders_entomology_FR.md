@@ -784,11 +784,11 @@ La comparaison suivante distingue sélection et mesure en utilisant les attaquan
 
 ## Distinguer sélection et entrée dans la moustiquaire
 
-| Analyse | Observations | Pente : moustiques par °C |
-|---|---:|---:|
-| Toutes les maisons : attaquants réels | 6 000 | +0,117 |
-| Maisons sélectionnées : attaquants réels | 1 987 | +3,501 |
-| Maisons sélectionnées : comptages | 1 987 | +2,489 |
+| Analyse                                     | Observations | Pente : moustiques par °C  |  
+| ------------------------------------------- | -----------: | -------------------------: |  
+| Toutes les maisons : attaquants réels       |        6 000 |                     +0,117 |  
+| Maisons sélectionnées : attaquants réels    |        1 987 |                     +3,501 |  
+| Maisons sélectionnées : comptages           |        1 987 |                     +2,489 |  
 
 La sélection crée l’association positive. <!-- element class="lead" -->
 
@@ -891,14 +891,14 @@ Dessiner les flèches avant de proposer des ajustements.
 
 ## Questions à explorer
 
-| Question | Modification à explorer |
-|---|---|
-| 1. Et si tout le monde utilisait une moustiquaire ? | Imposer l’utilisation dans toutes les maisons |
-| 2. Et si la chaleur n’agissait plus sur l’utilisation ? | Annuler le coefficient de température |
-| 3. Et si la nuisance n’agissait plus sur l’utilisation ? | Annuler le coefficient de pression |
-| 4. Et si l’utilisation de référence changeait ? | Faire varier `baseline_logit` |
-| 5. Et si davantage de moustiques entraient ? | Faire varier `bed_net_entry_rate` |
-| 6. Et si la température affectait la pression ? | Ajouter un effet écologique direct |
+| Question                                                 | Modification à explorer                       |
+|----------------------------------------------------------|-----------------------------------------------|
+| 1. Et si tout le monde utilisait une moustiquaire ?      | Imposer l’utilisation dans toutes les maisons |
+| 2. Et si la chaleur n’agissait plus sur l’utilisation ?  | Annuler le coefficient de température         |
+| 3. Et si la nuisance n’agissait plus sur l’utilisation ? | Annuler le coefficient de pression            |
+| 4. Et si l’utilisation de référence changeait ?          | Faire varier `baseline_logit`                 |
+| 5. Et si davantage de moustiques entraient ?             | Faire varier `bed_net_entry_rate`             |
+| 6. Et si la température affectait la pression ?          | Ajouter un effet écologique direct            |
 
 Prédire d’abord ; modifier une seule hypothèse à la fois.
 
@@ -1021,12 +1021,12 @@ source("R/04_discussion.R")
 subset(discussion_summary, scenario == "universal")
 ```
 
-| Scénario | *n* moyen | Pente moyenne |
-|---|---:|---:|
-| Fixe : référence | 1 960 | +2,490 |
-| Fixe : universelle | 6 000 | +0,081 |
-| Nouvelle : référence | 1 964 | +2,415 |
-| Nouvelle : universelle | 6 000 | +0,006 |
+| Scénario               | *n* moyen | Pente moyenne |  
+| ---------------------- | --------: | ------------: |  
+| Fixe : référence       |     1 960 |        +2,490 |  
+| Fixe : universelle     |     6 000 |        +0,081 |  
+| Nouvelle : référence   |     1 964 |        +2,415 |  
+| Nouvelle : universelle |     6 000 |        +0,006 |  
 
 200 répétitions par approche ; pentes en moustiques par °C. <!-- element class="caption" -->
 
@@ -1470,21 +1470,43 @@ n <- 6000L
 
 air_temperature_c <- rnorm(n, mean = 27, sd = 2.8)
 
-log_pressure <- rnorm(n, mean = log(28), sd = 0.65) + temperature_effect * (air_temperature_c - 27) / 2.8
+tz <- as.numeric(scale(air_temperature_c))
+
+Z <- rnorm(n, mean = 0, sd = 0.65)
+log_pressure <- log(28) + temperature_effect * tz + Z
 
 true_attacking_mosquitoes <- rpois(n, lambda = exp(log_pressure))
+mz <- as.numeric(scale(true_attacking_mosquitoes))
+
+prob_bednet_used <- plogis(-1 - 1.25 * tz + 1.75 * mz)
 ```
 
-$N\mid T,Z \sim \operatorname{Poisson}(\lambda)$, donc $E[N\mid T,Z]=\lambda$.
+$N\mid T_z,Z \sim \operatorname{Poisson}(\lambda)$, donc $E[N\mid T_z,Z]=\lambda$.
 
-$\log(\lambda)=\log(28)+\beta(T-27)/2.8+Z$, $Z\sim N(0,0.65^2)$, $Z\perp T$.
+$\log(\lambda)=\log(28)+\beta T_z+Z$, $Z\sim\mathcal{N}(0,0.65^2)$, $Z\perp T_z$.
 
-Ici, $T$ est la température en °C ; 27 et 2,8 sont la moyenne et l’écart-type **générateurs**.
+$Z$ : hétérogénéité entre maisons-nuits du logarithme de la pression attendue, indépendante de la température.
 
-$e^\beta$ multiplie l’abondance attendue par hausse de 2,8 °C ; pour $\beta=0{,}3$, cela donne **×1,35**.
+Une hausse d’un écart-type de température, soit une unité de `tz`, multiplie la pression attendue par $e^\beta$ ; pour $\beta=0{,}3$, cela donne environ **×1,35, soit une hausse de 35 %**.
 
 note:
-N désigne le nombre de moustiques attaquants et lambda sa moyenne conditionnelle. C’est N | T,Z qui suit une loi de Poisson ; E[N | T,Z] = lambda est une espérance, pas une variable tirée selon une loi de Poisson. Le code génère indépendamment la température et un terme normal de moyenne log(28) et d’écart-type 0.65, équivalent à log(28) + Z. Z représente l’hétérogénéité résiduelle entre maisons-nuits et est indépendant de T. Le coefficient temperature_effect correspond à beta. Le centrage et la division utilisent les paramètres fixes 27 et 2.8, pas la moyenne et l’écart-type réalisés dans cet échantillon. Le multiplicateur exp(beta) est valable à Z fixé et après intégration sur sa distribution indépendante. La moyenne marginale conditionnelle à T vaut 28 * exp(beta * (T - 27) / 2.8 + 0.65^2 / 2) ; 28 n’est donc pas la moyenne des attaquants à 27 °C. Le code reproduit la partie écologique de generate_ecological_population() dans R/lib/ecological_effect_compute.R. L’exemple ne réinitialise pas la graine ; ses valeurs ne doivent pas nécessairement reproduire les figures à graine fixée. Après avoir régénéré les attaquants, recalculer tz et mz à partir des nouveaux vecteurs avant d’appliquer le modèle comportemental. Le générateur complet le fait automatiquement. Dans le modèle causal supposé, beta décrit un effet sur le logarithme de l’abondance attendue, pas la pente linéaire des comptages.
+Cette diapositive ajoute un effet écologique direct tout en conservant le filtre comportemental. Générer la température, la standardiser sur la population complète, générer la pression attendue avec l’hétérogénéité indépendante, tirer les attaquants, standardiser ces comptages, puis calculer les probabilités d’utilisation.
+
+$N$ est le nombre réalisé de moustiques attaquants ; $\lambda$ est son espérance conditionnelle à $T_z$ et $Z$. Le tirage de Poisson fournit un comptage entier qui ne vaut pas nécessairement cette espérance.
+
+**$Z$ est un effet aléatoire de maison-nuit sur le logarithme de la pression attendue, pas un score standardisé.** Un tirage normal de moyenne zéro et d’écart-type 0,65 est effectué par maison-nuit. **Il représente l’hétérogénéité écologique non expliquée par la température.** Son indépendance avec la température est une hypothèse du modèle simplifié, pas une propriété établie sur le terrain.
+
+L’équation s’écrit aussi $\lambda=28\times e^{\beta T_z}\times e^Z$. Les effets sont additifs sur le logarithme et multiplicatifs sur l’espérance. Le tirage normal fait varier les espérances ; le tirage de Poisson fait varier les comptages autour de ces espérances. Ces deux composantes sont écologiques, distinctes de l’entrée ultérieure dans une moustiquaire.
+
+**Interpréter $\beta$ sur la bonne échelle de réponse.** Une hausse d’un écart-type dans la population complète multiplie l’espérance des attaquants par $e^\beta$, à $Z$ fixé. Pour $\beta=0{,}3$, la hausse est d’environ 35 %. Ce n’est ni une hausse de 1,35 écart-type de `mz`, ni une différence certaine de 35 % entre deux comptages individuels.
+
+Après intégration sur $Z$, $E[N\mid T_z]=28\exp(\beta T_z+0.65^2/2)$. À température moyenne, l’espérance est donc environ 34,6, pas 28. La valeur 28 est l’espérance conditionnelle lorsque $T_z=0$ et $Z=0$, ainsi que la médiane de la distribution de $\lambda$ à $T_z=0$, pas nécessairement celle des comptages réalisés.
+
+`mz` est calculé après les attaquants pour le filtre comportemental ; il ne change pas l’échelle de réponse écologique. $\beta$ agit sur le logarithme de la pression attendue, alors que −1,25 agit sur le logit de la probabilité d’utilisation : leurs valeurs ne sont pas directement comparables.
+
+La dernière ligne calcule seulement les probabilités d’utilisation. L’utilisation effective, la sélection et les captures sont générées ensuite. La standardisation utilise la population complète avant sélection ; elle n’est pas recalculée parmi les utilisateurs.
+
+**La question est de savoir si l’observation sélective retrouve ou déforme une relation écologique réellement présente dans le monde simulé.** $\beta$ n’est pas la pente linéaire comptage–température des comparaisons suivantes.
 
 --
 
@@ -1517,7 +1539,11 @@ La sélection ouvre aussi le chemin par le collisionneur T → U ← M. La relat
 :::
 
 note:
-Un exemple avec temperature_effect = 0.3 : chaque hausse de 2,8 °C multiplie l’abondance attendue par exp(0.3), soit environ 1,35. Les deux panneaux partagent population, captures et limites des axes. La sélection révèle un sous-ensemble des mêmes comptages potentiels. L’axe vertical affiche log(1 + comptage), avec les comptages originaux comme graduations, zéros inclus. Les courbes représentent les régressions linéaires sur les comptages bruts, transformées uniquement pour l’affichage ; les prédictions négatives sont omises. Les courbes sont descriptives, pas le modèle générateur exponentiel. Le graphe montre la sélection ; le modèle de capture inchangé est omis.
+Un exemple avec temperature_effect = 0.3 : chaque hausse d’un écart-type de température dans la population complète multiplie l’abondance attendue par exp(0.3), soit environ 1,35.
+
+Les deux panneaux partagent population, captures et limites des axes. La sélection révèle un sous-ensemble des mêmes comptages potentiels. L’axe vertical affiche log(1 + comptage), avec les comptages originaux comme graduations, zéros inclus.
+
+Les courbes représentent les régressions linéaires sur les comptages bruts, transformées uniquement pour l’affichage ; les prédictions négatives sont omises. Les courbes sont descriptives, pas le modèle générateur exponentiel. Le graphe montre la sélection ; le modèle de capture inchangé est omis.
 
 --
 
@@ -1540,7 +1566,15 @@ Le coefficient générateur et la pente des comptages ont des unités différent
 :::
 
 note:
-À chaque valeur de l’effet, 200 populations indépendantes de 6 000 maisons-nuits sont générées. Dans chaque répétition, couverture universelle et utilisateurs partagent les mêmes captures, avec une probabilité d’entrée de 0,7. Les barres sont des plages centrales à 95 % de Monte-Carlo, pas des intervalles de confiance. La ligne verticale à zéro correspond au modèle écologique initial. Les points entre valeurs sont reliés pour guider la lecture. L’effet écologique agit sur le logarithme de l’abondance attendue par 2,8 °C ; la pente ajustée décrit des moustiques par °C. Leur différence numérique n’est donc pas une mesure de biais. Comparer plutôt les deux pentes de comptages. La standardisation mz est recalculée dans chaque population : la sensibilité à la nuisance reste constante par écart-type, pas par moustique. Modifier l’effet change aussi la distribution marginale de pression ; l’interception écologique maintient l’abondance attendue à 27 °C, pas sa moyenne marginale.
+À chaque valeur de l’effet, 200 populations indépendantes de 6 000 maisons-nuits sont générées. Dans chaque répétition, couverture universelle et utilisateurs partagent les mêmes captures, avec une probabilité d’entrée de 0,7. Les barres sont des plages centrales à 95 % de Monte-Carlo, pas des intervalles de confiance.
+
+La ligne verticale à zéro correspond au modèle écologique initial.
+
+L’effet écologique $\beta$ agit sur le logarithme de l’abondance attendue par écart-type de température dans la population complète ; la pente ajustée décrit des moustiques par °C. Leur différence numérique n’est donc pas une mesure de biais. Comparer plutôt les deux pentes de comptages.
+
+`tz` et `mz` sont recalculées dans chaque population complète avant sélection : **les sensibilités restent constantes par écart-type réalisé, pas par degré ni par moustique.**
+
+Modifier l’effet change aussi la distribution marginale de pression ; la constante écologique maintient l’abondance attendue à `tz = 0`, la température moyenne de la population générée, pas sa moyenne marginale.
 
 --
 
@@ -1558,16 +1592,24 @@ ecological_slopes(d)
 subset(ecological_summary, temperature_effect %in% c(-0.15, 0, 0.3))
 ```
 
-| Effet | Universelle | Utilisateurs | Écart |
-|---|---:|---:|---:|
-| -0,15 | -1,300 | +0,724 | +2,024 |
-| +0,00 | +0,008 | +2,398 | +2,390 |
-| +0,30 | +2,711 | +5,697 | +2,987 |
+| Effet | Universelle | Utilisateurs | Écart  |  
+| ----- | ----------: | -----------: | -----: |  
+| -0,15 |      -1,307 |       +0,703 | +2,009 |  
+| +0,00 |      +0,006 |       +2,398 | +2,392 |  
+| +0,30 |      +2,717 |       +5,716 | +2,999 |  
 
 200 populations par effet ; pentes en moustiques par °C. <!-- element class="caption" -->
 
 note:
-R/04_discussion.R génère tous les résultats sans données pré-calculées. generate_ecological_population() utilise log_pressure = rnorm(n, log(28), 0.65) + temperature_effect * (air_temperature_c - 27) / 2.8, puis une loi de Poisson et le modèle habituel d’utilisation. tz et mz gardent leurs noms et sont recalculées. La première sortie illustre une réalisation supplémentaire ; le tableau résume les 200 répétitions à graine fixée. Écart = pente des utilisateurs − pente universelle dans la même répétition. Les résultats sont exportés dans data/ecological_replicates.csv et data/ecological_summary.csv. Une pente universelle négative et une pente sélectionnée positive illustrent une inversion ; aucune nouvelle causalité ne peut être déduite de la seule régression sélectionnée.
+`R/04_discussion.R` génère tous les résultats sans données pré-calculées. `generate_ecological_population()` calcule `tz = as.numeric(scale(air_temperature_c))`, tire `Z = rnorm(n, 0, 0.65)`, et utilise `log_pressure = log(28) + temperature_effect * tz + Z`, puis une loi de Poisson et le modèle habituel d’utilisation. `mz` est calculée à partir des attaquants réalisés avant sélection.
+
+La première sortie illustre une réalisation supplémentaire ; le tableau résume les 200 répétitions à graine fixée.
+
+Écart = pente des utilisateurs − pente universelle dans la même répétition.
+
+Les résultats sont exportés dans `data/ecological_replicates.csv` et `data/ecological_summary.csv`. Le fichier des répétitions contient aussi `expected_universal`, la pente universelle attendue conditionnelle aux températures de la population, après intégration sur l’hétérogénéité écologique et la capture.
+
+Une pente universelle négative et une pente sélectionnée positive illustrent une inversion ; aucune nouvelle causalité ne peut être déduite de la seule régression sélectionnée.
 
 ---
 

@@ -2,10 +2,10 @@
 # Separate seeds preserve every existing question's results.
 generate_ecological_population <- function(temperature_effect = 0.3, n = 6000) {
   air_temperature_c <- rnorm(n, 27, 2.8)
-  log_pressure <- rnorm(n, log(28), 0.65) +
-    temperature_effect * (air_temperature_c - 27) / 2.8
-  true_attacking_mosquitoes <- rpois(n, exp(log_pressure))
   tz <- as.numeric(scale(air_temperature_c))
+  Z <- rnorm(n, mean = 0, sd = 0.65)
+  log_pressure <- log(28) + temperature_effect * tz + Z
+  true_attacking_mosquitoes <- rpois(n, exp(log_pressure))
   mz <- as.numeric(scale(true_attacking_mosquitoes))
   sampled <- rbinom(n, 1, plogis(-1 - 1.25 * tz + 1.75 * mz)) == 1
   # Potential counts under universal use; selected observation reveals a subset.
@@ -25,8 +25,12 @@ ecological_draws <- do.call(rbind, lapply(c(-0.6, -0.3, -0.15, 0, 0.15, 0.3, 0.6
   do.call(rbind, lapply(seq_len(200), function(b) {
     d <- generate_ecological_population(effect)
     slopes <- ecological_slopes(d)
+    expected_counts <- 0.7 * 28 * exp(effect * d$tz + 0.65^2 / 2)
+    expected_universal <- cov(d$air_temperature_c, expected_counts) /
+      var(d$air_temperature_c)
     data.frame(temperature_effect = effect, replicate = b,
                universal = slopes[["universal"]], selected = slopes[["selected"]],
+               expected_universal = expected_universal,
                difference = slopes[["selected"]] - slopes[["universal"]],
                sample_n = sum(d$sampled))
   }))
