@@ -44,8 +44,14 @@ class Resources(HTMLParser):
 
 export_root = (Path(sys.argv[1]) if len(sys.argv) > 1 else
                repo_root / "export").resolve()
-pages = sorted(export_root.glob("*/index.html"))
-assert pages, f"No exported presentations found in {export_root}"
+pages_by_deck = {page.parent.name: page for page in export_root.glob("*/index.html")}
+required_decks = {"colliders_entomology_EN", "colliders_entomology_FR"}
+missing_decks = sorted(required_decks - pages_by_deck.keys())
+assert not missing_decks, (
+    f"Missing required exported deck(s) under {export_root}: "
+    f"{', '.join(missing_decks)}"
+)
+pages = [pages_by_deck[name] for name in sorted(required_decks)]
 required_licenses = license_sources(repo_root)
 
 for page in pages:
